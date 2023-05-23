@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/login.css" />
+    <link rel="stylesheet" href="styles/nav.css" />
 </head>
 <body>
     <?php require_once('_nav.php'); ?>

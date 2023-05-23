@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
 
     
     if ($username === 'admin' && $password === 'admin') {
-       
+
         $_SESSION['username'] = $username;
         header('Location: admin_gerer.php'); 
         exit();
