@@ -19,7 +19,7 @@
     <div class="container">
     <h1>Création de votre compte</h1>
     <form action="" method="post">
-        <div>
+        <div class="form-group">
             <label for="email">Email: </label>
             <input 
                 type="email" 
@@ -29,7 +29,7 @@
                 required
             />
         </div>
-        <div>
+        <div class="form-group">
             <label for="password">Mot de passe: </label>
             <input 
                 type="password" 
@@ -39,7 +39,7 @@
                 required
             />
         </div>
-        <div>
+        <div class="form-group">
             <input class="button" type="submit" name="send" value="Créer" />
         </div>
     </form>

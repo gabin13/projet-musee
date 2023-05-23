@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 50px; /* Augmentation de l'espace sur les bords */
+    background-color: #f2f2f2;
+    background-image: url('images/Bierstadt_-_Among_the_Sierra_Nevada_Mountains_-_1868.webp'); /* Chemin vers votre image de fond */
+    background-size: cover;
+    background-position: center;
+}
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 0; /* Suppression de la marge supérieure par défaut */
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 100%;
+    padding: 12px; /* Augmentation de l'espace dans les champs */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form-group button:hover {
+    background-color: #555;
+}

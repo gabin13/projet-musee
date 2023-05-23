@@ -30,7 +30,7 @@
 
         <?php if (isset($msg)) { echo "<div>" . $msg . "</div>"; } ?>
 
-        <div>
+        <div class="form-group">
             <label for="email">Email: </label>
             <input 
                 type="email" 
@@ -40,7 +40,7 @@
                 required
             />
         </div>
-        <div>
+        <div class="form-group">
             <label for="password">Mot de passe: </label>
             <input 
                 type="password" 
@@ -50,8 +50,8 @@
                 required
             />
         </div>
-        <div>
-            <input class="button" type="submit" name="send" value="Connexion" />
+        <div class="form-group">
+            <input type="submit" name="send" value="Connexion" />
         </div>
     </form>
     </div>
