@@ -46,6 +46,8 @@
                         <a href="account_edit2.php?id=<?php echo $user['id']; ?>" class="btn-modif2">Modifier le mot de passe</a>
                         <a href="account_del.php?id=<?php echo $user['id']; ?>" onClick="return confirm('Voulez vous vraiment supprimer ce compte ?');" class="btn-supp">Supprimer</a>
                     </td>
+
+                    
                 </tr>
     
     
