@@ -1,22 +1,38 @@
 <?php
+
 require_once('functions.php');
 
-
-if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
+if (isset($_POST["submit"])) {
+    $bdd = connect();
+    $sql = "SELECT * FROM users WHERE `email` = :email;";
     
-    if ($username === 'admin' && $password === 'admin') {
-       
-        $_SESSION['username'] = $username;
-        header('Location: admin_gerer.php'); 
-        exit();
+    $sth = $bdd->prepare($sql);
+    
+    $sth->execute([
+        'email' => $_POST['email']
+    ]);
+
+    $user = $sth->fetch();
+    
+    if ($user && password_verify($_POST['password'], $user['password'])) {
+        $_SESSION['user'] = $user;
+
+        if ($user['email'] === 'admin' && $_POST['password'] === 'admin') {
+            header('Location: admin_gerer.php');
+            exit();
+        } else {
+            header('Location: expo.php');
+            exit();
+        }
     } else {
-        $errorMessage = 'Nom d\'utilisateur ou mot de passe incorrect.';
+        $msg = "Email ou mot de passe incorrect !";
     }
 }
 ?>
+
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -25,12 +41,12 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
     <h1>Page de connexion administrateur</h1>
-    <?php if (isset($errorMessage)) { ?>
-        <p style="color: red;"><?php echo $errorMessage; ?></p>
+    <?php if (isset($msg)) { ?>
+        <p style="color: red;"><?php echo $msg; ?></p>
     <?php } ?>
     <form method="post" action="">
-        <label for="username">Nom d'utilisateur:</label>
-        <input type="text" name="username" required><br><br>
+        <label for="email">Nom d'utilisateur:</label>
+        <input type="text" name="email" required><br><br>
         <label for="password">Mot de passe:</label>
         <input type="password" name="password" required><br><br>
         <input type="submit" name="submit" value="Se connecter">
