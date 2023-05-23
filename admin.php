@@ -14,16 +14,11 @@ if (isset($_POST["submit"])) {
 
     $user = $sth->fetch();
     
-    if ($user && password_verify($_POST['password'], $user['password'])) {
-        $_SESSION['user'] = $user;
-
-        if ($user['email'] === 'admin' && $_POST['password'] === 'admin') {
-            header('Location: admin_gerer.php');
-            exit();
-        } else {
-            header('Location: expo.php');
-            exit();
-        }
+    if ($username === 'admin' && $password === 'admin') {
+       
+        $_SESSION['username'] = $username;
+        header('Location: admin_gerer.php'); 
+        exit();
     } else {
         $msg = "Email ou mot de passe incorrect !";
     }

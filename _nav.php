@@ -1,4 +1,5 @@
-<ul id="nav">
+<nav class="navbar">
+    <ul>
         <?php if (!isset($_SESSION['user'])){ ?>
             <li><a href="register.php">Créer un compte</a></li>
             <li><a href="login.php">Connexion</a></li>
@@ -6,4 +7,5 @@
             <li><a href="account.php">Mon Compte</a></li>
             <li><a href="logout.php">Logout</a></li>
         <?php } ?>
-</ul>
+    </ul>
+</nav>

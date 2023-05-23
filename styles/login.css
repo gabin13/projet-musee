@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 50px; /* Augmentation de l'espace sur les bords */
     background-color: #f2f2f2;
-    background-image: url('images/Bierstadt_-_Among_the_Sierra_Nevada_Mountains_-_1868.webp'); /* Chemin vers votre image de fond */
     background-size: cover;
     background-position: center;
 }
@@ -15,7 +14,7 @@ body {
     padding: 40px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-h1 {
+.login {
     text-align: center;
     color: #333;
     margin-top: 0; /* Suppression de la marge supérieure par défaut */

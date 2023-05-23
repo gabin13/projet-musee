@@ -23,9 +23,12 @@
         }
     }
 ?>
+<style> body{
+            background-image: url('images/Bierstadt_-_Among_the_Sierra_Nevada_Mountains_-_1868.webp');</style>
+        }
     <?php require_once('_header.php'); ?>
     <div class="container">
-    <h1>Connexion</h1>
+    <h1 class="login">Connexion</h1>
     <form action="" method="post">
 
         <?php if (isset($msg)) { echo "<div>" . $msg . "</div>"; } ?>

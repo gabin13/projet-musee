@@ -1,0 +1,30 @@
+.navbar {
+    background-color: transparent; /* Définit la couleur de fond transparente */
+    position: fixed; /* Fixe la barre de navigation en haut de la page */
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: #ffffff; /* Définit la couleur du texte */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Définit la couleur de fond au survol */
+}
