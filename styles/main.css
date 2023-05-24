@@ -35,3 +35,7 @@ img{
     align-items: center;
     margin: 0;
 }
+
+label{
+    text-align: left;
+}
