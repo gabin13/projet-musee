@@ -15,6 +15,13 @@
         header('Location: login.php');
     }
 ?>
+
+<style> 
+    body {
+        background-image: url('images/Bierstadt_-_Among_the_Sierra_Nevada_Mountains_-_1868.webp');
+    }
+</style>
+
     <?php require_once('_header.php'); ?>
     <div class="container">
     <h1>Création de votre compte</h1>

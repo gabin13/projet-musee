@@ -8,12 +8,19 @@ body {
 }
 .container {
     max-width: 400px;
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 10%;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 5px;
     padding: 40px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    top: 200px;
 }
+
+form{
+    top: 200px;
+}
+
 .login {
     text-align: center;
     color: #333;

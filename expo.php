@@ -12,6 +12,7 @@
 </figure>
 
 </body>
+</html>
 <footer>
     <address>
         <ul>
@@ -36,4 +37,3 @@
     <input type="submit" value="Soumettre">
 </form>
 </footer> 
-</html>
