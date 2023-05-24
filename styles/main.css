@@ -14,10 +14,10 @@ h2 {
 }
 
 footer {
-    background-color: #02096d;
+    background-color: #17026d;
     color: #ffffff;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     text-align: center;
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -34,8 +34,36 @@ img{
     justify-content: center;
     align-items: center;
     margin: 0;
+    height: 300px;
+    width: 220px;
+    border-radius: 15px;
 }
 
 label{
     text-align: left;
 }
+
+figcaption{
+    color: #ccc;
+    margin-left: 60px;
+}
+
+figure{
+    justify-content: center;
+    border: solid rgb(102, 11, 0);
+    width:14.6%;
+    border-radius: 15px;
+    margin-left: 18%;
+}
+
+
+a {
+    color: rgb(0, 0, 0); 
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+
