@@ -85,3 +85,64 @@ input[type="submit"]:hover {
     text-decoration: none;
     border-radius: 4px;
 }
+
+.container_custom {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: blue;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.titre_custom {
+    text-align: center;
+    color: orange;
+    margin-bottom: 30px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color:white;
+}
+
+.table th {
+    color: orange;
+    font-weight: bold;
+}
+
+.table tr:hover {
+    background-color: white;
+  
+}
+
+.table td:hover {
+    color: black;
+  
+}
+.links {
+margin-top: 20px;
+text-align: center;
+}
+
+.logout-link {
+display: inline-block;
+padding: 10px 20px;
+background-color: #ff6b6b;
+color: #fff;
+text-decoration: none;
+border-radius: 4px;
+transition: background-color 0.3s;
+}
+
+.logout-link:hover {
+background-color: #e36161;
+}

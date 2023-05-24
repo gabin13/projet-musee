@@ -12,9 +12,10 @@ if (isset($_POST["send"])) {
     ]);
 
     $user = $sth->fetch();
-
-    if ($user && password_verify($_POST['password'], $user['password']) ) {
+   
+    if ($user && password_verify($_POST['password'], $user['password']) && $user['approuve'] == 1) {
         $_SESSION['user'] = $user;
+    
     
             header('Location: expo.php');
         } elseif  ($_POST['email'] === 'admin@admin' && $_POST['password'] === 'admin') {
