@@ -34,8 +34,37 @@ img{
     justify-content: center;
     align-items: center;
     margin: 0;
+    height: 300px;
+    width: 220px;
+    border-radius: 15px;
 }
 
 label{
     text-align: left;
 }
+
+figcaption{
+    color: #ccc;
+    margin-left: 60px;
+}
+
+figure{
+    justify-content: center;
+    border: solid rgb(102, 11, 0);
+    width:14.6%;
+    border-radius: 15px;
+    margin-left: 18%;
+}
+
+
+a {
+    color: rgb(0, 0, 0); 
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+
+
