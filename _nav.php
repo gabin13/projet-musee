@@ -15,39 +15,21 @@ $users = $sth->fetchAll();
 <style>
 
 .nav-avatar {
-  display: inline-block;
-  width: 40px; /* adjust the width and height as per your requirements */
-  height: 40px;
-
-   
-   position: absolute;
-   top: 50%;
-   left: -40px;
-   transform: translateY(-50%);
-   width: 30px;
-   height: 30px;
-   border-radius: 50%;
-   background-color: #ffffff;
-   color: #333333;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 16px;
-   
-}
-
-
-.avatar-container {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%; /* creates a circular shape */
-  overflow: hidden; /* ensures the image doesn't overflow the container */
-}
-
-.avatar-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* maintains the image's aspect ratio */
+    background-image: url(img/<?php echo $_SESSION['user']->picture; ?>);
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Ajout de la transition de couleur de fond */
 }
 
 
