@@ -3,7 +3,7 @@
 
 <style>
 .nav-avatar {
-    background-image: url(img/<?php echo $_SESSION['user']->picture; ?>);
+    background-image: url(Images/<?php echo $_SESSION['user']->picture; ?>);
     position: absolute;
     top: 50%;
     left: -40px;
