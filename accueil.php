@@ -4,5 +4,9 @@
 <?php require_once('_header.php'); ?>
 <?php require_once('_nav.php'); ?>    
 <h1>Bienvenue dans notre musée virtuel</h1>
+
+
+<img src="images/art.png" alt="Logo du musée">
+
 </body>
 </html>

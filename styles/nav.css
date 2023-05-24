@@ -1,5 +1,5 @@
 .navbar {
-    background-color: transparent; /* Définit la couleur de fond transparente */
+    background-color: rgb(134, 132, 132);
     position: fixed; /* Fixe la barre de navigation en haut de la page */
     top: 0;
     left: 0;

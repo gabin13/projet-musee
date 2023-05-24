@@ -1,8 +1,37 @@
 body {
     font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: grey;
 }
 
-h1, h2, h3 {
+h1 {
     font-family: "Playfair Display", serif;
     text-align: center;
+}
+
+h2 {
+    font-family: "Playfair Display", serif;
+    text-align: left;
+}
+
+footer {
+    background-color: #02096d;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border-top: 1px solid #ccc;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form{
+    text-align: right;
+}
+
+img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
