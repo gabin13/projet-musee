@@ -1,5 +1,5 @@
 .navbar {
-    background-color: bisque;
+    background-color: rgb(134, 132, 132);
     position: fixed; /* Fixe la barre de navigation en haut de la page */
     top: 0;
     left: 0;
@@ -11,10 +11,16 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    text-align: right; /* Aligne les onglets de navigation à droite */
 }
 
 .navbar li {
-    float: left;
+    display: inline-block; /* Utilise des éléments en ligne pour les onglets de navigation */
+    margin-left: 10px; /* Ajoute un espace entre les onglets */
+}
+
+.navbar li:first-child {
+    margin-left: 0; /* Supprime la marge à gauche du premier onglet */
 }
 
 .navbar li a {
@@ -23,8 +29,16 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    position: relative; /* Ajout de la position relative pour le conteneur de l'avatar */
 }
 
 .navbar li a:hover {
     background-color: rgba(255, 255, 255, 0.3); /* Définit la couleur de fond au survol */
+}
+
+
+
+.nav-account {
+    display: inline-block;
+    transition: background-color 0.3s ease; /* Ajout de la transition de couleur de fond */
 }

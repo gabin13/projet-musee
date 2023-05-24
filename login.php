@@ -22,6 +22,9 @@ if (isset($_POST["send"])) {
             header('Location: admin_gerer.php');
         
         exit();
+    } elseif ($user && password_verify($_POST['password'], $user['password']) && $user['approuve'] == 0) {
+        $msg = "Compte pas encore activer par l'Admin !";
+        
     } else {
         $msg = "Email ou mot de passe incorrect !";
     }

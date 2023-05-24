@@ -3,14 +3,20 @@ require_once('functions.php');
 
 if (isset($_POST["send"])) {
     $bdd = connect();
-
-    $sql = "INSERT INTO users (`email`, `password`, `approuve`) VALUES (:email, :password, :approuve);";
-    $sth = $bdd->prepare($sql);
-    $sth->execute([
-        'email'     => $_POST['email'],
-        'password'  => password_hash($_POST['password'], PASSWORD_DEFAULT),
-        'approuve'  => 0 
-    ]);
+    if ($_POST['email'] === 'admin@admin') {
+        
+        echo "Ce n'est pas pour vous.";
+     
+    } else {
+        $sql = "INSERT INTO users (`email`, `password`, `approuve`) VALUES (:email, :password, :approuve);";
+        $sth = $bdd->prepare($sql);
+        $sth->execute([
+            'email'     => $_POST['email'],
+            'password'  => password_hash($_POST['password'], PASSWORD_DEFAULT),
+            'approuve'  => 0 
+        ]);
+    }
+  
 
    
 }
@@ -50,15 +56,14 @@ if (isset($_POST["send"])) {
 
     </form>
 </div>
-<?php if (isset($_POST["send"])) {
+<?php
+if (isset($_POST["send"]) && !($_POST['email'] == 'admin@admin')) {
    echo '<div style="display: flex; justify-content: center; align-items: center; height: 35vh; font-size: 50px; font-weight: bold;">
-   <p>VEUILLEZ ATTENDRE D\'ETRE ACCEPTE/REFUSER PAR L\'ADMINISTRATEUR</p>
+   <p>VEUILLEZ ATTENDRE D\'ÊTRE ACCEPTÉ/REFUSÉ PAR L\'ADMINISTRATEUR</p>
    </div>';
 }
-
-
-
 ?>
+
 
 </body>
 </html>

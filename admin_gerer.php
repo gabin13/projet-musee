@@ -9,7 +9,7 @@ $sth->execute();
 $users = $sth->fetchAll();
 
 
-if (isset($_GET['approve']) && $_GET['approve'] == 'true' && isset($_GET['user_id'])) {
+if (isset($_GET['approuves']) && $_GET['approuves'] == 'true' && isset($_GET['user_id'])) {
     $user_id = $_GET['user_id'];
 
     $sql = "UPDATE users SET approuve = 1 WHERE id = :user_id";
@@ -19,10 +19,10 @@ if (isset($_GET['approve']) && $_GET['approve'] == 'true' && isset($_GET['user_i
     
     header('Location: admin_gerer.php?msg=Utilisateur approuvé avec succès');
     exit();
-}
+} 
 
 
-if (isset($_GET['approve']) && $_GET['approve'] == 'false' && isset($_GET['user_id'])) {
+if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['user_id'])) {
     $user_id = $_GET['user_id'];
 
     $sql = "DELETE FROM users WHERE id = :user_id";
@@ -43,7 +43,7 @@ if (isset($_GET['approve']) && $_GET['approve'] == 'false' && isset($_GET['user_
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles/admin.css"> 
+    
 </head>
 <body>
 <div class="container_custom">
@@ -80,10 +80,12 @@ if (isset($_GET['approve']) && $_GET['approve'] == 'false' && isset($_GET['user_
                 <td style="color: orange; font-weight: 900;"><?php echo $user['id']; ?></td>
                 <td style="color: orange; padding-left: 300px; font-weight: 900;font-size: 20px;"><?php echo $user['email']; ?></td>
                 <td style="color: orange; padding-left: 200px; font-weight: 900;font-size: 20px;"><?php echo $user['created_at']; ?></td>
+              
+
                 <td>
                     <?php if ($user['approuve'] == 0) { ?>
-                        <a href="admin_gerer.php?approve=true&user_id=<?php echo $user['id']; ?>">Approuver</a> |
-                        <a href="admin_gerer.php?approve=false&user_id=<?php echo $user['id']; ?>">Refuser</a>
+                        <a href="admin_gerer.php?approuves=true&user_id=<?php echo $user['id']; ?>">Approuver</a> |
+                        <a href="admin_gerer.php?approuves=false&user_id=<?php echo $user['id']; ?>">Refuser</a>
                     <?php } else { ?>
                         Approuvé
                     <?php } ?>
@@ -93,6 +95,7 @@ if (isset($_GET['approve']) && $_GET['approve'] == 'false' && isset($_GET['user_
     </tbody>
 </table>
 </div>
+
 </body>
 </html>
 

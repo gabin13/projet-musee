@@ -1,7 +1,10 @@
 <?php require_once('functions.php'); ?>
 <?php 
+    require_once('functions.php');
+
     if (!isset($_SESSION['user'])) {
         header('Location: login.php');
+        exit(); 
     }
 
     $bdd = connect();
@@ -10,18 +13,16 @@
 
     $sth = $bdd->prepare($sql);
         
-    $sth->execute([
-        'user_id'     => $_SESSION['user']['id']
-    ]);
+    $sth->execute();
 
     $oeuvres = $sth->fetchAll();
-
 ?>
+
 
 <?php require_once('_header.php'); ?>
 
     <div class="container">
-    <h1>Les tableaux: <?php echo $_SESSION['user']['email']; ?> </h1>
+    <h1>Les tableaux:  </h1>
 
     <?php if (isset($_GET['msg'])) {
         echo "<div>" . $_GET['msg'] . "</div>";
@@ -40,12 +41,10 @@
                 <tr>
                     <td class="id"><?php echo $oeuvre['id']; ?></td>
                     <td class="stats"><?php echo $oeuvre['nom']; ?></td>
-                    <td img src="tableaux/ "><?php echo $oeuvre['image_url']; ?></td>
+                    <td><img src="tableaux/<?php echo $oeuvre['image_url']; ?>" /></td>
                     <td align="right">
-                            <a 
-                                class="btn-det"
-                                href="joconde.php" 
-                            >En savoir plus...</a>
+                    <a class="btn-det" href="joconde.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
+
                 </tr>
             <?php } ?>
         </tbody>
