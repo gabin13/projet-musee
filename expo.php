@@ -1,8 +1,12 @@
 <?php require_once('functions.php'); ?>
+<style> body{
+            background-image: url('images/petite-galerie-5-figure-d-artiste-2.webp');}</style>
+        
 <?php require_once('_header.php'); ?>
     <?php require_once('_nav.php'); ?>
-<h1>gg</h1>
+<h1>Bienvenue dans notre exposition</h1>
 <H2>Catégories: </H2>
+</body>
 <footer>
     <address>
         <ul>
@@ -26,7 +30,5 @@
 
     <input type="submit" value="Soumettre">
 </form>
-
-</footer>
-</body>
+</footer> 
 </html>
