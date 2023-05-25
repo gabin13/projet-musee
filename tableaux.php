@@ -21,7 +21,7 @@
 
 <?php require_once('_header.php'); ?>
 
-    <div class="container">
+    <div class="register">
     <h1>Les tableaux:  </h1>
 
     <?php if (isset($_GET['msg'])) {
