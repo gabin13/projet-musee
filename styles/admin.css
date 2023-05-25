@@ -66,3 +66,83 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+
+.container_reset_password {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.h1_reset {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.message_reset {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.message_warning {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.form-group_reset {
+    margin-bottom: 20px;
+}
+
+.label_reset {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button_reset {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: grey;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button_reset:hover {
+    background-color: grey;
+}
+
+.back-button_reset {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: grey;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.back-button_reset:hover {
+    background-color: grey;
+}

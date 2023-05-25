@@ -64,6 +64,7 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
             <th style="padding-right: 30px" width="30%">Created_at</th>
             <th>État</th>
             <th>Action</th>
+            <th>MDP</th>
                 
                
            
@@ -90,10 +91,10 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
 
                 <td>
                     <?php if ($user['approuve'] == 0) { ?>
-                        <a href="admin_gerer.php?approuves=true&user_id=<?php echo $user['id']; ?>">Approuver</a> |
-                        <a href="admin_gerer.php?approuves=false&user_id=<?php echo $user['id']; ?>">Refuser</a>
+                        <a href="admin_gerer.php?approuves=true&user_id=<?php echo $user['id']; ?>">Valider</a> |
+                        <a href="admin_gerer.php?approuves=false&user_id=<?php echo $user['id']; ?>">Radié</a>
                     <?php } else { ?>
-                        Approuvé
+                        Validé
                         
                     <?php } ?>
                 </td>
@@ -103,6 +104,15 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
               <a href="users_del.php?id=<?php echo $user['id']; ?>" onClick="return confirm('Êtes-vous sûr ?');">Supprimer</a>
              <?php } ?>
              </td>
+             <?php if ($user['approuve'] == 1) { ?>
+                <td>
+    
+                <a href="reinitialiser.php?id=<?php echo $user['id']; ?>">Réinitialiser</a>
+             <?php } ?>
+             </td>
+            <td>
+                <a href="traitement_formulaire.php?id=<?php echo $user['id']; ?>">Lire Commentaire</a>
+            </td>
 
             </tr>
         <?php } ?>
