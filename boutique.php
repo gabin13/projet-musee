@@ -81,7 +81,7 @@
   </header>
   
   <main>
-  <div class="product" onclick="<?php echo "header('Location: achat.php');"; ?>">
+  <div class="product" onclick="redirectToAchat(1)">
       <img src="Images/tshirt.jpg" alt="tshirt">
       <div class="product-info">
         <h2 class="product-title">T-Shirt Joconde</h2>
@@ -90,7 +90,7 @@
       </div>
     </div>
     
-    <div class="product" onclick="<?php echo "header('Location: achat.php');"; ?>">
+    <div class="product" onclick="redirectToAchat(2)">
       <img src="Images/tableaucène.jpg" alt="tableau">
       <div class="product-info">
         <h2 class="product-title">Tableau Cène</h2>
@@ -99,7 +99,7 @@
       </div>
     </div>
 
-    <div class="product" onclick="<?php echo "header('Location: achat.php');"; ?>">
+    <div class="product" onclick="redirectToAchat(3)">
       <img src="Images/mug.jpg" alt="mug">
       <div class="product-info">
         <h2 class="product-title">Mug David</h2>
@@ -112,6 +112,11 @@
     
   </main>
 
-  </script>
+  
+  <script>
+function redirectToAchat(productID) {
+    window.location.href = 'achat.php?id=' + productID;
+}
+</script>
 </body>
 </html>
