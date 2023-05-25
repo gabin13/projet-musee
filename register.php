@@ -5,7 +5,7 @@ if (isset($_POST["send"])) {
     $bdd = connect();
     if ($_POST['email'] === 'admin@admin') {
         
-        echo "Ce n'est pas pour vous.";
+        $msg = "Ce n'est pas pour vous !";
      
     } else {
         $sql = "INSERT INTO users (`email`, `password`, `approuve`) VALUES (:email, :password, :approuve);";
@@ -16,17 +16,17 @@ if (isset($_POST["send"])) {
             'approuve'  => 0 
         ]);
     }
-  
-
-   
 }
-
 ?>
+
 <?php require_once('_header.php'); ?>
-<div class="container">
+<div class="container_register">
     <h1>Création de votre compte</h1>
     <?php if (isset($_GET['msg'])) { ?>
         <div class="message"><?php echo $_GET['msg']; ?></div>
+    <?php } ?>
+    <?php if (isset($msg)) { ?>
+        <div class="message_warning"><?php echo $msg; ?></div>
     <?php } ?>
     <form action="" method="post">
         <div class="form-group">
@@ -58,7 +58,7 @@ if (isset($_POST["send"])) {
 </div>
 <?php
 if (isset($_POST["send"]) && !($_POST['email'] == 'admin@admin')) {
-   echo '<div style="display: flex; justify-content: center; align-items: center; height: 35vh; font-size: 50px; font-weight: bold;">
+   echo '<div style="display: flex; justify-content: center; align-items: center; height: 20vh; font-size: 50px; font-weight: bold;">
    <p>VEUILLEZ ATTENDRE D\'ÊTRE ACCEPTÉ/REFUSÉ PAR L\'ADMINISTRATEUR</p>
    </div>';
 }

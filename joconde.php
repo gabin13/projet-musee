@@ -25,7 +25,18 @@ if (isset($_GET['id'])) {
     echo "Auteur: " . $oeuvre['auteur'] . "<br>";
     echo "Annee: " . $oeuvre['annee'] . "<br>";
     echo "Description: " . $oeuvre['description'] . "<br>";
-    echo "Image: <img src='tableaux/" . $oeuvre['image_url'] . "' alt='Image de l'oeuvre'><br>";
+    $sql = "SELECT * FROM oeuvres WHERE categorie = 'tableaux' AND id = $id";
+    $sth = $bdd->prepare($sql);
+    $sth->execute();
+    $oeuvres = $sth->fetchAll();
+    if (isset($oeuvres)) {
+        foreach ($oeuvres as $oeuvre) {
+            echo '<div class="image-container image-' . $oeuvre['id'] . '">';
+            echo '<img src="tableaux/' . $oeuvre['image_url'] . '" alt="Image de l\'oeuvre">';
+            echo '</div>';
+        }
+    }
+    
     
     echo "<br>";
     } else {
@@ -44,6 +55,7 @@ if (isset($_GET['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/categorie.css" />
 </head>
 <body>
     

@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
     $sth = $bdd->prepare($sql);
     
     $sth->execute([
-        'id' => $userd
+        'id' => $userid
     ]);
 
     header('Location: admin_gerer.php?msg=Utilisateur bien supprimé !');

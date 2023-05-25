@@ -35,19 +35,21 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
 }
 ?>
 
-<?php require_once('_header.php'); ?>
+<?php require_once('_nav.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/nav.css"> 
+    <link rel="stylesheet" href="styles/admin.css"> 
     <title>Document</title>
     
 </head>
 <body>
 <div class="container_custom">
-
+<br><br>
 <h1 class="titre_custom">Liste des utilisateurs</h1>
 
 <?php if (isset($_GET['msg'])) { ?>
@@ -59,8 +61,12 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
         <tr>
             <th width="2%">ID</th>
             <th>Email</th>
-            <th style="padding-right: 95px" width="30%">Created_at</th>
+            <th style="padding-right: 30px" width="30%">Created_at</th>
+            <th>État</th>
             <th>Action</th>
+                
+               
+           
         </tr>
     </thead>
     <style>
@@ -77,9 +83,9 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
     <tbody>
         <?php foreach ($users as $user) { ?>
             <tr>
-                <td style="color: orange; font-weight: 900;"><?php echo $user['id']; ?></td>
-                <td style="color: orange; padding-left: 300px; font-weight: 900;font-size: 20px;"><?php echo $user['email']; ?></td>
-                <td style="color: orange; padding-left: 200px; font-weight: 900;font-size: 20px;"><?php echo $user['created_at']; ?></td>
+                <td style="font-weight: 900;"><?php echo $user['id']; ?></td>
+                <td style="padding-left: 60px; font-weight: 900;font-size: 20px;"><?php echo $user['email']; ?></td>
+                <td style="padding-left: 50px; font-weight: 900; font-size: 20px;"> <?php echo date('d/m/Y H:i:s', strtotime($user['created_at'])); ?></td>
               
 
                 <td>
@@ -88,8 +94,16 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
                         <a href="admin_gerer.php?approuves=false&user_id=<?php echo $user['id']; ?>">Refuser</a>
                     <?php } else { ?>
                         Approuvé
+                        
                     <?php } ?>
                 </td>
+                <?php if ($user['approuve'] == 1) { ?>
+                <td>
+    
+              <a href="users_del.php?id=<?php echo $user['id']; ?>" onClick="return confirm('Êtes-vous sûr ?');">Supprimer</a>
+             <?php } ?>
+             </td>
+
             </tr>
         <?php } ?>
     </tbody>

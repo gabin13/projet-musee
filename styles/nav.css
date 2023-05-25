@@ -35,3 +35,8 @@
 .navbar li a:hover {
     background-color: rgba(255, 255, 255, 0.3); /* Définit la couleur de fond au survol */
 }
+
+.nav-account {
+    display: inline-block;
+    transition: background-color 0.3s ease; /* Ajout de la transition de couleur de fond */
+}
