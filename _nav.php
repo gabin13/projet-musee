@@ -72,7 +72,8 @@ $users = $sth->fetchAll();
 
         <span class="nav-account">Mon Compte</span>
         </a>
-        </li>               
+        </li>    
+        <li><a href="expo.php">Exposition</a></li>       
         <li><a href="boutique.php">Boutique</a></li>
         <li><a href="logout.php">Logout</a></li>
         <?php } ?>

@@ -32,6 +32,8 @@
             <tr class="account">
                 <td class="id">ID</td>
                 <td class="stats">Email</td>
+                <td class="stats">Nom</td>
+                <td class="stats">Prénom</td>
                 <td class="stats">Actions</td>
             </tr>
         </thead>
@@ -41,6 +43,8 @@
                 <tr class="account">
                     <td class="id"><?php echo $user['id']; ?></td>
                     <td class="stats"><?php echo $user['email']; ?></td>
+                    <td class="stats"><?php echo $user['nom']; ?></td>
+                    <td class="stats"><?php echo $user['prenom']; ?></td>
                     <td>
                         <a href="account_edit2.php?id=<?php echo $user['id']; ?>" class="btn-modif2">Modifier le mot de passe</a>
                         <a href="account_del.php?id=<?php echo $user['id']; ?>" onClick="return confirm('Voulez vous vraiment supprimer ce compte ?');" class="btn-supp">Supprimer</a>

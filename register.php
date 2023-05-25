@@ -6,7 +6,7 @@ if (isset($_POST["send"])) {
     if ($_POST['email'] === 'admin@admin') {
         
         $msg = "Ce n'est pas pour vous !";
-     
+    
     } else {
         $sql = "INSERT INTO users (`email`, `password`, `approuve`) VALUES (:email, :password, :approuve);";
         $sth = $bdd->prepare($sql);

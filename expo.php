@@ -10,6 +10,12 @@
         <a href="Tableaux.php">Tableaux</a>
     </figcaption>
 </figure>
+<figure>
+    <img class="sculptures" src="sculptures\Le-Penseur-rodin-575x1024.png" alt="">
+    <figcaption>
+        <a href="sculptures.php">Sculptures</a>
+    </figcaption>
+</figure>
 
 </body>
 </html>
