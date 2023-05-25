@@ -1,30 +1,54 @@
 <?php
-// Récupérer les données du formulaire
-$commentaire = $_POST['commentaire'];
-$note = $_POST['note'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $email = $_POST['email'];
+    $raison = $_POST['raison'];
+    $note = isset($_POST['note']) ? $_POST['note'] : '';
+    $commentaire = $_POST['commentaire'];
 
-// Connexion à la base de données
-$connexion = mysqli_connect("localhost", "utilisateur", "mot_de_passe", "nom_base_de_donnees");
+    // Formatage des données du formulaire
+    $donneesFormulaire = "Nom : $nom\n";
+    $donneesFormulaire .= "Prénom : $prenom\n";
+    $donneesFormulaire .= "Email : $email\n";
+    $donneesFormulaire .= "Raison de contact : $raison\n";
+    $donneesFormulaire .= "Note : $note\n";
+    $donneesFormulaire .= "Commentaire : $commentaire\n";
 
-// Vérifier la connexion
-if (mysqli_connect_errno()) {
-echo "Échec de la connexion à la base de données : " . mysqli_connect_error();
-exit();
-}
+    // Enregistrement des données dans un fichier
+    $fichier = 'commentaires.txt';
+    file_put_contents($fichier, $donneesFormulaire, FILE_APPEND);
 
-// Échapper les caractères spéciaux pour éviter les injections SQL
-$commentaire = mysqli_real_escape_string($connexion, $commentaire);
-$note = mysqli_real_escape_string($connexion, $note);
-
-// Insérer les données dans la base de données
-$sql = "INSERT INTO commentaires (commentaire, note) VALUES ('$commentaire', '$note')";
-
-if (mysqli_query($connexion, $sql)) {
-echo "Le commentaire a été enregistré avec succès.";
+    echo "Votre commentaire a été enregistré avec succès.";
 } else {
-echo "Erreur lors de l'enregistrement du commentaire : " . mysqli_error($connexion);
+    echo "Une erreur s'est produite lors de l'envoi du formulaire.";
+}
+?>
+
+<?php
+require_once('functions.php');
+
+
+    $bdd = connect();
+    $sql = "SELECT * FROM users WHERE `email` = :email;";
+    
+    $sth = $bdd->prepare($sql);
+    
+    $sth->execute([
+        'email'     => $_POST['email']
+    ]);
+
+    $user = $sth->fetch();
+if ($_POST['email'] === 'admin@admin' && $_POST['password'] === 'admin'){
+    $fichier = 'commentaires.txt';
+
+    if (file_exists($fichier)) {
+        $contenu = file_get_contents($fichier);
+        echo nl2br($contenu); // Afficher le contenu avec les sauts de ligne
+    } else {
+        echo "Le fichier des commentaires n'existe pas.";
+    }
 }
 
-// Fermer la connexion à la base de données
-mysqli_close($connexion);
 ?>
+

@@ -44,11 +44,12 @@
                     <td><img src="tableaux/<?php echo $oeuvre['image_url']; ?>" /></td>
                     <td align="right">
                     <a class="btn-det" href="joconde.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
-
+               
                 </tr>
             <?php } ?>
         </tbody>
     </table><br><br>
     </div>
+    <a href="note.php">En savoir plus...</a>
 </body>
 </html>
