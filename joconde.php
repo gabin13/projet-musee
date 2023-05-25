@@ -15,26 +15,36 @@ if (isset($_GET['id'])) {
     $sql = "SELECT * FROM oeuvres WHERE categorie = 'tableaux' AND id = $id";
     $sth = $bdd->prepare($sql);
     $sth->execute();
+    $oeuvres = $sth->fetchAll();
+    echo '<div class="container">';
+    if (isset($oeuvres)) {
+        foreach ($oeuvres as $oeuvre) {
+            echo '<div class="image-container image-' . $oeuvre['id'] . '">';
+            echo '<img class= "img3" src="tableaux/' . $oeuvre['image_url'] . '" alt="Image de l\'oeuvre" width="370" height="500" >';
+            echo '</div>';
+        }
+
+    $sql = "SELECT * FROM oeuvres WHERE categorie = 'tableaux' AND id = $id";
+    $sth = $bdd->prepare($sql);
+    $sth->execute();
 
     $oeuvre = $sth->fetch(PDO::FETCH_ASSOC);
 
     if ($oeuvre) {
         $description = $oeuvre['description'];
-       
-        echo "Nom: " . $oeuvre['nom'] . "<br>";
+    
+    echo '<div class="oeuvre-info">';
+    echo "Nom: " . $oeuvre['nom'] . "<br>";
     echo "Auteur: " . $oeuvre['auteur'] . "<br>";
     echo "Annee: " . $oeuvre['annee'] . "<br>";
+    echo'</div>';
+
+    echo '<div class="oeuvre-description">';
     echo "Description: " . $oeuvre['description'] . "<br>";
-    $sql = "SELECT * FROM oeuvres WHERE categorie = 'tableaux' AND id = $id";
-    $sth = $bdd->prepare($sql);
-    $sth->execute();
-    $oeuvres = $sth->fetchAll();
-    if (isset($oeuvres)) {
-        foreach ($oeuvres as $oeuvre) {
-            echo '<div class="image-container image-' . $oeuvre['id'] . '">';
-            echo '<img src="tableaux/' . $oeuvre['image_url'] . '" alt="Image de l\'oeuvre">';
-            echo '</div>';
-        }
+    echo'</div>';
+
+    echo'</div>';
+
     }
     
     
@@ -56,8 +66,10 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles/categorie.css" />
+    <link rel="stylesheet" href="styles/oeuvre.css" />
 </head>
-<body>
+<body class= "container">
+<?php require_once('_nav.php'); ?>
     
 </body>
 </html>

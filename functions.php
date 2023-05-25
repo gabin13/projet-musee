@@ -12,7 +12,7 @@
 
     function connect () {
         $link = new PDO(
-            'mysql:dbname=musée;host=localhost:3307;charset=UTF8', 
+            'mysql:dbname=musée;host=localhost;charset=UTF8', 
             'root', 
             
         );
