@@ -1,4 +1,6 @@
 <?php require_once('functions.php'); ?>
+<link rel="stylesheet" href="styles/account.css" />
+
 <?php 
     if (!isset($_SESSION['user'])) {
         header('Location: login.php');
@@ -20,42 +22,29 @@
 
 <?php require_once('_header.php'); ?>
 <div class="container">
-    <h1>Votre compte: </h1>
+    <h1>Votre compte</h1>
 
     <?php if (isset($_GET['msg'])) {
         echo "<div>" . $_GET['msg'] . "</div>";
     }?>
 
+    <div class="account-details">
+        <div class="avatar-place avatar-overlay">
+    <img src="Images/<?php echo $_SESSION['user']['avatar']; ?>" alt="Avatar" />
+    <div class="overlay-text">Modifier l'avatar</div>
+</div>
+        <div class="user-details">
+            <p><strong>Email:</strong> <?php echo $user['email']; ?></p>
+            <p><strong>Nom:</strong> <?php echo $user['nom']; ?></p>
+            <p><strong>Prénom:</strong> <?php echo $user['prenom']; ?></p>
+            <p><strong>Adresse postale:</strong> <?php echo $user['adresse']; ?></p>
+        </div>
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr class="account">
-                <td class="id">ID</td>
-                <td class="stats">Email</td>
-                <td class="stats">Nom</td>
-                <td class="stats">Prénom</td>
-                <td class="stats">Actions</td>
-            </tr>
-        </thead>
-        <tbody>
-        
-            
-                <tr class="account">
-                    <td class="id"><?php echo $user['id']; ?></td>
-                    <td class="stats"><?php echo $user['email']; ?></td>
-                    <td class="stats"><?php echo $user['nom']; ?></td>
-                    <td class="stats"><?php echo $user['prenom']; ?></td>
-                    <td>
-                        <a href="account_edit2.php?id=<?php echo $user['id']; ?>" class="btn-modif2">Modifier le mot de passe</a>
-                        <a href="account_del.php?id=<?php echo $user['id']; ?>" onClick="return confirm('Voulez vous vraiment supprimer ce compte ?');" class="btn-supp">Supprimer</a>
-                    </td>
-
-                    
-                </tr>
-    
-    
-        </tbody>
-    </table><br><br>
+    <div class="actions">
+        <a href="account_edit2.php?id=<?php echo $user['id']; ?>" class="btn-modif2">Modifier les détails</a>
+        <a href="account_del.php?id=<?php echo $user['id']; ?>" onClick="return confirm('Voulez-vous vraiment supprimer ce compte ?');" class="btn-supp">Supprimer</a>
+    </div>
 </div>
 </body>
 </html>
