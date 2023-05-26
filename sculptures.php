@@ -38,12 +38,12 @@
         </thead>
         <tbody>
             <?php foreach ($oeuvres as $oeuvre) { ?>
-                <tr>
-                    <td class="id"><?php echo $oeuvre['id']; ?></td>
+                <tr class="cadre">
+                    <td class="stats"><?php echo $oeuvre['id']; ?></td>
                     <td class="stats"><?php echo $oeuvre['nom']; ?></td>
                     <td><img src="sculptures/<?php echo $oeuvre['image_url']; ?>" /></td>
                     <td align="right">
-                    <a class="btn-det" href="sculp.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
+                    <a class="stats" href="sculp.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
 
                 </tr>
             <?php } ?>

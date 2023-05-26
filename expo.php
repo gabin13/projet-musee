@@ -3,6 +3,13 @@
 <?php require_once('_header.php'); ?>
     <?php require_once('_nav.php'); ?>
 <h1>Bienvenue dans notre exposition</h1>
+    <p>Explorez l'histoire, l'art et la culture depuis chez vous. 
+    Découvrez des trésors culturels du monde entier, de l'art classique à l'art moderne. 
+    Plongez dans nos galeries. 
+    Apprenez avec des descriptions détaillées. 
+    Profitez de visites faîtes par vous même autant de fois que vous le souhaitez. 
+    Partagez cette expérience avec vos proches. 
+    Explorez, apprenez et émerveillez-vous devant notre musée virtuel. Bonne visite !</p><br>
 <H2>Catégories: </H2>
 <figure>
     <img class="tableaux" src="tableaux\800px-Mona_Lisa__by_Leonardo_da_Vinci__from_C2RMF_retouched.jpg" alt="">

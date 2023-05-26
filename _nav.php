@@ -75,8 +75,8 @@ $users = $sth->fetchAll();
         </li>    
         <li><a href="expo.php">Exposition</a></li>       
         <li><a href="boutique.php">Boutique</a></li>
-        <li><a href="logout.php">Logout</a></li>
         <li><a href="contact.php">Contact</a></li>
+        <li><a href="logout.php">Logout</a></li>
         <?php } ?>
     </ul>
    

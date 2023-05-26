@@ -30,24 +30,18 @@
 
 
     <table class="table">
-        <thead>
-            <tr>
-                <td class="id">ID</td>
-                <td class="stats">Nom</td>
-            </tr>
-        </thead>
         <tbody>
             <?php foreach ($oeuvres as $oeuvre) { ?>
-                <tr>
-                    <td class="id"><?php echo $oeuvre['id']; ?></td>
-                    <td class="stats"><?php echo $oeuvre['nom']; ?></td>
-                    <td><img src="tableaux/<?php echo $oeuvre['image_url']; ?>" /></td>
+                <tr class="cadre">
+                    <td class="stats"><?php echo $oeuvre['id']; ?></td>
+                    <td class=""><?php echo $oeuvre['nom']; ?></td>
+                    <td class="stats"><img src="tableaux/<?php echo $oeuvre['image_url']; ?>" /></td>
                     <td align="right">
-                    <a class="btn-det" href="joconde.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
-               
+                    <a class="stats" href="joconde.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
+                    <br>
                 </tr>
             <?php } ?>
-        </tbody>
+        </tbody><br><br>
     </table><br><br>
     </div>
     <a href="note.php">En savoir plus...</a>
