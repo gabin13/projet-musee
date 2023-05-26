@@ -120,3 +120,42 @@ p strong {
 }
 
 
+/* footer */
+.footer {
+    background-color: #f9f9f9;
+    padding: 20px;
+    color: #333333;
+  }
+  
+  .footer-info {
+    margin-bottom: 20px;
+  }
+  
+  .footer-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-info p {
+    margin-bottom: 5px;
+  }
+  
+  .footer-extra ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-extra ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .footer-extra ul li a {
+    color: #666666;
+    text-decoration: none;
+  }
+  
+  .footer-extra ul li a:hover {
+    color: #333333;
+  }
+  

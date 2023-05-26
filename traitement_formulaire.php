@@ -10,19 +10,18 @@ if (isset($_GET['id'])) {
     $sth = $bdd->prepare($sql);
     $sth->execute(['id' => $userid]);
     $user = $sth->fetch();
-  
+     echo $userid;
     // Vérifier si l'utilisateur existe
     if ($user) {
         
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            
-            $nom = $_POST['nom'];
-            $prenom = $_POST['prenom'];
-            $email = $_POST['email'];
+            $email = $user['email'];
+            $nom =  $user['nom'];
+            $prenom =  $user['nom'];
             $raison = $_POST['raison'];
             $note = isset($_POST['note']) ? $_POST['note'] : '';
             $commentaire = $_POST['commentaire'];
-
+            
             // Formatage des données du formulaire
             $donneesFormulaire = "Nom : $nom\n";
             $donneesFormulaire .= "Prénom : $prenom\n";

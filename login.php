@@ -23,7 +23,7 @@ if (isset($_POST["send"])) {
         
         exit();
     } elseif ($user && password_verify($_POST['password'], $user['password']) && $user['approuve'] == 0) {
-        $msg = "Compte pas encore activer par l'Admin !";
+        $msg = "Compte pas encore activé par l'Admin !";
         
     } else {
         $msg = "Email ou mot de passe incorrect !";

@@ -94,7 +94,7 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
                 <td>
                     <?php if ($user['approuve'] == 0) { ?>
                         <a href="admin_gerer.php?approuves=true&user_id=<?php echo $user['id']; ?>">Valider</a> |
-                        <a href="admin_gerer.php?approuves=false&user_id=<?php echo $user['id']; ?>">Radié</a>
+                        <a href="admin_gerer.php?approuves=false&user_id=<?php echo $user['id']; ?>">Refuser</a>
                     <?php } else { ?>
                         Validé
                         
@@ -103,7 +103,7 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
                 
                 <td>
                 <?php if ($user['approuve'] == 1) { ?>
-              <a href="users_del.php?id=<?php echo $user['id']; ?>" onClick="return confirm('Êtes-vous sûr ?');">Supprimer</a>
+              <a href="users_del.php?id=<?php echo $user['id']; ?>" onClick="return confirm('Êtes-vous sûr ?');">Radier</a>
              <?php } ?>
              </td>
              

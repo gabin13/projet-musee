@@ -8,13 +8,15 @@ if (isset($_POST["send"])) {
         $msg = "Ce n'est pas pour vous !";
     
     } else {
-        $sql = "INSERT INTO users (`email`, `password`,`nom`,`prenom`, `approuve`, `note`, `premium`) VALUES (:email, :password,:nom,:prenom, :approuve, :note, :premium);";
+        $sql = "INSERT INTO users (`email`, `password`,`nom`,`prenom`,`adresse`, `approuve`, `note`, `premium`) VALUES (:email, :password,:nom,:prenom,:adresse, :approuve, :note, :premium);";
         $sth = $bdd->prepare($sql);
         $sth->execute([
             'email'     => $_POST['email'],
             'password'  => password_hash($_POST['password'], PASSWORD_DEFAULT),
             'nom'       => $_POST['nom'],
             'prenom'       => $_POST['prenom'],
+            'adresse' => isset($_POST['adresse']) ? $_POST['adresse'] : '',
+
             'approuve'  => 0,
             'note'      => 0,
             'premium'   => 0

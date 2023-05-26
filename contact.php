@@ -117,11 +117,17 @@ if (isset($_GET['id'])) {
       
     </style>
 </head>
+<link rel="stylesheet" href="styles/main.css"> 
 <?php require_once('_header.php'); ?>
 <body>
     <div class="container_contact">
     <?php
 $userid = isset($_GET['id']) ? $_GET['id'] : '';
+
+// Assuming $user variable contains the logged-in user's information
+$email = $user['email'];
+$nom = $user['nom'];
+$prenom = $user['prenom'];
 
 ?>
         <h1>Formulaire de contact</h1>
@@ -131,22 +137,17 @@ $userid = isset($_GET['id']) ? $_GET['id'] : '';
        
             <div class="form-group_contact">
                 <label class="label_contact" for="nom">Nom :</label>
-                <input class="input_contact" type="text" id="nom" name="nom" required>
+                <input class="input_contact" type="text" readonly value="<?php echo $nom; ?>">
             </div>
 
             <div class="form-group_contact">
                 <label class="label_contact" for="prenom">Prénom :</label>
-                <input class= "input_contact" type="text" id="prenom" name="prenom" required>
+                <input class="input_contact" type="text" readonly value="<?php echo $prenom; ?>">
             </div>
 
             <div class="form-group_contact">
                 <label  class="label_contact" for="email">Email :</label>
-                <?php
-// Assuming $user variable contains the logged-in user's information
-$email = $user['email'];
-?>
-
-<input class="input_contact" type="email" readonly value="<?php echo $email; ?>">
+                <input class="input_contact" type="email" readonly value="<?php echo $email; ?>">
 
             </div>
 
@@ -200,6 +201,24 @@ $email = $user['email'];
             </div>
         </form>
     </div>
+    <footer class="footer">
+  <div class="container">
+    <div class="footer-info">
+      <h3>MuséeO-tech</h3>
+      <p>2 rue bis galvanie 75004 Paris</p>
+      <p>Téléphone : +33 928 359 215</p>
+      <p>Email : contact@entreprise.com</p>
+    </div>
+    <div class="footer-extra">
+      <ul>
+        <li><a href="#">Politique de confidentialité</a></li>
+        <li><a href="#">Conditions d'utilisation</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
