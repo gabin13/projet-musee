@@ -1,3 +1,24 @@
+<?php
+require_once('functions.php');
+
+
+if (isset($_GET['id'])) {
+    $userid = $_GET['id'];
+    $bdd = connect();
+
+    // Récupérer les informations de l'utilisateur
+    $sql = "SELECT * FROM users WHERE id = :id;";
+    $sth = $bdd->prepare($sql);
+    $sth->execute(['id' => $userid]);
+    $user = $sth->fetch();
+
+    // Vérifier si l'utilisateur existe
+    
+       
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,8 +120,15 @@
 <?php require_once('_header.php'); ?>
 <body>
     <div class="container_contact">
+    <?php
+$userid = isset($_GET['id']) ? $_GET['id'] : '';
+
+?>
         <h1>Formulaire de contact</h1>
-        <form method="POST" action="traitement_formulaire.php">
+        <form method="POST" action="traitement_formulaire.php?id=<?php echo $userid; ?>">
+        <input type="hidden" name="id" value="<?php echo $userid; ?>">
+
+       
             <div class="form-group_contact">
                 <label class="label_contact" for="nom">Nom :</label>
                 <input class="input_contact" type="text" id="nom" name="nom" required>
@@ -113,7 +141,13 @@
 
             <div class="form-group_contact">
                 <label  class="label_contact" for="email">Email :</label>
-                <input   class="input_contact" type="email" id="email" name="email" required>
+                <?php
+// Assuming $user variable contains the logged-in user's information
+$email = $user['email'];
+?>
+
+<input class="input_contact" type="email" readonly value="<?php echo $email; ?>">
+
             </div>
 
             <div class="form-group_contact">

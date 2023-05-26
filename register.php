@@ -8,12 +8,13 @@ if (isset($_POST["send"])) {
         $msg = "Ce n'est pas pour vous !";
     
     } else {
-        $sql = "INSERT INTO users (`email`, `password`, `approuve`) VALUES (:email, :password, :approuve);";
+        $sql = "INSERT INTO users (`email`, `password`, `approuve`, `note`) VALUES (:email, :password, :approuve, :note);";
         $sth = $bdd->prepare($sql);
         $sth->execute([
             'email'     => $_POST['email'],
             'password'  => password_hash($_POST['password'], PASSWORD_DEFAULT),
-            'approuve'  => 0 
+            'approuve'  => 0,
+            'note'      => 0
         ]);
     }
 }

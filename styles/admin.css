@@ -9,7 +9,7 @@ body {
 }
 
 .container_custom {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
     background-color: white;
@@ -147,3 +147,20 @@ input[type="password"] {
     background-color: grey;
 }
 
+.h1_commentaire{
+    color: #333333;
+    text-align: center;
+}
+
+.commentaires {
+background-color: #f9f9f9;
+padding: 20px;
+margin-top: 20px;
+border-radius: 5px;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+display: inline-block;
+}
+.aucun-commentaire {
+    color: #777777;
+    font-style: italic;
+}

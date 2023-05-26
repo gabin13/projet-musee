@@ -44,6 +44,6 @@
         </tbody><br><br>
     </table><br><br>
     </div>
-    <a href="note.php">En savoir plus...</a>
+    
 </body>
 </html>

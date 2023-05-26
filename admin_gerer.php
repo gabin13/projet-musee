@@ -9,9 +9,10 @@ $sth->execute();
 $users = $sth->fetchAll();
 
 
+
 if (isset($_GET['approuves']) && $_GET['approuves'] == 'true' && isset($_GET['user_id'])) {
     $user_id = $_GET['user_id'];
-
+     
     $sql = "UPDATE users SET approuve = 1 WHERE id = :user_id";
     $sth = $bdd->prepare($sql);
     $sth->execute(['user_id' => $user_id]);
@@ -65,6 +66,7 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
             <th>État</th>
             <th>Action</th>
             <th>MDP</th>
+            <th>Note</th>
                 
                
            
@@ -98,20 +100,22 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
                         
                     <?php } ?>
                 </td>
-                <?php if ($user['approuve'] == 1) { ?>
+                
                 <td>
-    
+                <?php if ($user['approuve'] == 1) { ?>
               <a href="users_del.php?id=<?php echo $user['id']; ?>" onClick="return confirm('Êtes-vous sûr ?');">Supprimer</a>
              <?php } ?>
              </td>
-             <?php if ($user['approuve'] == 1) { ?>
+             
                 <td>
-    
+                <?php if ($user['approuve'] == 1) { ?>
                 <a href="reinitialiser.php?id=<?php echo $user['id']; ?>">Réinitialiser</a>
              <?php } ?>
              </td>
             <td>
-                <a href="traitement_formulaire.php?id=<?php echo $user['id']; ?>">Lire Commentaire</a>
+            <?php if ($user['note'] == 1) {?>
+                <a href="commentaire.php?id=<?php echo $user['id']; ?>">Lire Commentaire</a>
+                <?php }  ?>
             </td>
 
             </tr>

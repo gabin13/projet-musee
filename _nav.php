@@ -64,9 +64,7 @@ $users = $sth->fetchAll();
         <a href="account.php">
         <span class="nav-avatar">
         <div class="avatar-container">
-        <?php foreach ($users as $user) { ?>
-         <img src="Images/<?php echo $user['avatar']; ?>" alt="Avatar" />
-        <?php } ?>
+        <img src="Images/<?php echo $_SESSION['user']['avatar']; ?>" alt="Avatar" />
         </div>
         </span>
 
@@ -75,11 +73,8 @@ $users = $sth->fetchAll();
         </li>    
         <li><a href="expo.php">Exposition</a></li>       
         <li><a href="boutique.php">Boutique</a></li>
-        <li><a href="contact.php">Contact</a></li>
+        <li><a href="contact.php?id=<?php echo $_SESSION['user']['id']; ?>">Contact</a></li>
         <li><a href="logout.php">Logout</a></li>
         <?php } ?>
     </ul>
-   
-
-  
 </nav>

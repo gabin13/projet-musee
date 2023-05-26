@@ -39,7 +39,7 @@ if (isset($_POST["send"])) {
 
 <?php require_once('_header.php'); ?>
 
-<div class="container">
+<div class="container_login">
     <h1 class="login">Connexion</h1>
     <form action="" method="post">
         <?php if (isset($msg)) { echo "<div>" . $msg . "</div>"; } ?>
