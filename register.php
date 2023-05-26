@@ -8,13 +8,16 @@ if (isset($_POST["send"])) {
         $msg = "Ce n'est pas pour vous !";
     
     } else {
-        $sql = "INSERT INTO users (`email`, `password`, `approuve`, `note`) VALUES (:email, :password, :approuve, :note);";
+        $sql = "INSERT INTO users (`email`, `password`,`nom`,`prenom`, `approuve`, `note`, `premium`) VALUES (:email, :password,:nom,:prenom, :approuve, :note, :premium);";
         $sth = $bdd->prepare($sql);
         $sth->execute([
             'email'     => $_POST['email'],
             'password'  => password_hash($_POST['password'], PASSWORD_DEFAULT),
+            'nom'       => $_POST['nom'],
+            'prenom'       => $_POST['prenom'],
             'approuve'  => 0,
-            'note'      => 0
+            'note'      => 0,
+            'premium'   => 0
         ]);
     }
 }
@@ -30,6 +33,26 @@ if (isset($_POST["send"])) {
         <div class="message_warning"><?php echo $msg; ?></div>
     <?php } ?>
     <form action="" method="post">
+    <div class="form-group">
+            <label for="nom">Nom: </label>
+            <input 
+                type="nom" 
+                placeholder="Entrez votre nom" 
+                name="nom" 
+                id="nom"
+                required
+            />
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom: </label>
+            <input 
+                type="prenom" 
+                placeholder="Entrez votre mot de passe" 
+                name="prenom" 
+                id="prenom"
+                required
+            />
+        </div>
         <div class="form-group">
             <label for="email">Email: </label>
             <input 
