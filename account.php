@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 require_once('functions.php');
 ?>
@@ -43,6 +44,14 @@ if (isset($_POST['action'])) {
         // Mettre à jour la valeur affichée
         $user['prenom'] = $newPrenom;
         $afficherBoutonModifier = true; // Afficher à nouveau le bouton "Modifier"
+=======
+<?php require_once('functions.php'); ?>
+<link rel="stylesheet" href="styles/account.css" />
+
+<?php 
+    if (!isset($_SESSION['user'])) {
+        header('Location: login.php');
+>>>>>>> df03952d8a30699814b002bbedbfeac5a9ca36bf
     }
 }
 
@@ -121,6 +130,7 @@ if (isset($_POST['action_adresse'])) {
 
     <div class="account-details">
         <div class="avatar-place avatar-overlay">
+<<<<<<< HEAD
             <img src="Images/<?php echo $_SESSION['user']['avatar']; ?>" alt="Avatar">
             <div class="overlay-text">
                 <a href="hi.php">Modifier l'avatar</a>
@@ -221,6 +231,23 @@ if (isset($_POST['action_adresse'])) {
     </div>
 
     
+=======
+    <img src="Images/<?php echo $_SESSION['user']['avatar']; ?>" alt="Avatar" />
+    <div class="overlay-text">Modifier l'avatar</div>
+</div>
+        <div class="user-details">
+            <p><strong>Email:</strong> <?php echo $user['email']; ?></p>
+            <p><strong>Nom:</strong> <?php echo $user['nom']; ?></p>
+            <p><strong>Prénom:</strong> <?php echo $user['prenom']; ?></p>
+            <p><strong>Adresse postale:</strong> <?php echo $user['adresse']; ?></p>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="account_edit2.php?id=<?php echo $user['id']; ?>" class="btn-modif2">Modifier les détails</a>
+        <a href="account_del.php?id=<?php echo $user['id']; ?>" onClick="return confirm('Voulez-vous vraiment supprimer ce compte ?');" class="btn-supp">Supprimer</a>
+    </div>
+>>>>>>> df03952d8a30699814b002bbedbfeac5a9ca36bf
 </div>
 
 </body>
