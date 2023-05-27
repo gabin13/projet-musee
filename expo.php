@@ -1,5 +1,6 @@
 <?php require_once('functions.php'); ?>
-        
+<link rel="stylesheet" href="styles/main.css"> 
+   
 <?php require_once('_header.php'); ?>
     <?php require_once('_nav.php'); ?>
 <h1>Bienvenue dans notre exposition</h1>

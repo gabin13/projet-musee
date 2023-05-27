@@ -80,24 +80,38 @@
     <h1>Boutique du Musée</h1>
   </header>
   
+<?php
+
+  $bdd = connect();
+
+    $sql = "SELECT * FROM boutique";
+    $sth = $bdd->prepare($sql);
+    $sth->execute();
+    $boutique = $sth->fetchAll();
+
+  ?>
+  
   <main>
-  <div class="product" onclick="redirectToAchat(1)">
-      <img src="Images/tshirt.jpg" alt="tshirt">
-      <div class="product-info">
-        <h2 class="product-title">T-Shirt Joconde</h2>
-        <p class="product-description">Un T-Shirt incontournable.</p>
-        <p class="product-price">29.99€</p>
-      </div>
-    </div>
+
+<?php
+
+   if (isset($boutique)) {
+        foreach ($boutique as $produit) {
+
+            echo '<div class="product" onclick="redirectToAchat(' . $produit['id'] . ')">';
+            echo '<img src="Images/' . $produit['image'] . '" alt="' . $produit['nom'] . '">';
+            echo '<div class="product-info">';
+            echo '<h2 class="product-title">' . $produit['nom'] . '</h2>';
+            echo '<p class="product-description">' . $produit['description'] . '</p>';
+            echo '<p class="product-price">' . $produit['prix'] . '€</p>';
+            echo '</div>';
+            echo '</div>'; 
+        }
+      }
+
+    ?>
     
-    <div class="product" onclick="redirectToAchat(2)">
-      <img src="Images/tableaucène.jpg" alt="tableau">
-      <div class="product-info">
-        <h2 class="product-title">Tableau Cène</h2>
-        <p class="product-description">Un tableau représentant une célèbre peinture du musée, la Cène.</p>
-        <p class="product-price">19.99€</p>
-      </div>
-    </div>
+
 
     <div class="product" onclick="redirectToAchat(3)">
       <img src="Images/mug.jpg" alt="mug">

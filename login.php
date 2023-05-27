@@ -30,6 +30,8 @@ if (isset($_POST["send"])) {
     }
 }
 ?>
+   <link rel="stylesheet" href="styles/login.css"> 
+   
 
 <style> 
     body {

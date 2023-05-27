@@ -16,7 +16,6 @@ if (isset($_POST["send"])) {
             'nom'       => $_POST['nom'],
             'prenom'       => $_POST['prenom'],
             'adresse' => isset($_POST['adresse']) ? $_POST['adresse'] : '',
-
             'approuve'  => 0,
             'note'      => 0,
             'premium'   => 0

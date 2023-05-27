@@ -1,7 +1,7 @@
 <?php
 require_once('functions.php');
 
-// Vérifier si l'utilisateur est connecté en tant qu'administrateur
+
 if ($_POST['email'] === 'admin@admin' && $_POST['password'] === 'admin') {
     header('Location: login.php');
     exit();
@@ -9,8 +9,8 @@ if ($_POST['email'] === 'admin@admin' && $_POST['password'] === 'admin') {
 
 $bdd = connect();
 
-// Récupérer toutes les œuvres de la catégorie "tableaux"
-$sql = "SELECT * FROM oeuvres WHERE categorie = 'tableaux'";
+
+$sql = "SELECT * FROM boutique";
 $sth = $bdd->prepare($sql);
 $sth->execute();
 $oeuvres = $sth->fetchAll();
@@ -77,7 +77,7 @@ if (isset($_POST['action'])) {
 }
 ?>
 
-<!-- Affichage de la page -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,7 +90,7 @@ if (isset($_POST['action'])) {
         <div class="message"><?php echo $msg; ?></div>
     <?php } ?>
     
-    <!-- Formulaire pour ajouter une nouvelle œuvre -->
+
     <h2>Ajouter une nouvelle œuvre</h2>
     <form action="" method="post">
         <input type="hidden" name="action" value="ajouter">
@@ -111,7 +111,7 @@ if (isset($_POST['action'])) {
         </div>
     </form>
     
-    <!-- Liste des œuvres existantes -->
+   
     <h2>Liste des œuvres</h2>
     <?php if (count($oeuvres) > 0) { ?>
         <table>

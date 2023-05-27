@@ -7,10 +7,7 @@ $sth = $bdd->prepare($sql);
 $sth->execute();
 $users = $sth->fetchAll();
 
-
-
 ?>
-
 
 <style>
 
@@ -50,7 +47,6 @@ $users = $sth->fetchAll();
   object-fit: cover; /* maintains the image's aspect ratio */
 }
 
-
 </style>
 
 <nav class="navbar">
@@ -71,7 +67,8 @@ $users = $sth->fetchAll();
         <span class="nav-account">Mon Compte</span>
         </a>
         </li>    
-        <li><a href="expo.php">Exposition</a></li>       
+        <li><a href="expo.php">Exposition</a></li> 
+        <li><a href="premium.php">Premium</a></li> 
         <li><a href="boutique.php">Boutique</a></li>
         <li><a href="contact.php?id=<?php echo $_SESSION['user']['id']; ?>">Contact</a></li>
         <li><a href="logout.php">Logout</a></li>
