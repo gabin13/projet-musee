@@ -1,5 +1,7 @@
 <style> body{
             background-image: url('images/art.png');}</style>
+               <link rel="stylesheet" href="styles/login.css"> 
+
 <?php require_once('functions.php'); ?>
 <?php require_once('_header.php'); ?>
 

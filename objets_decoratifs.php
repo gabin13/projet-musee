@@ -9,7 +9,7 @@
 
     $bdd = connect();
 
-    $sql = "SELECT * FROM oeuvres WHERE categorie = 'tableaux'";
+    $sql = "SELECT * FROM oeuvres WHERE categorie = 'objets_decoratifs'";
 
     $sth = $bdd->prepare($sql);
         
@@ -23,7 +23,7 @@
 
 
     <div class="register">
-    <h1>Les tableaux:  </h1>
+    <h1>Les Objets décoratifs:  </h1>
 
     <?php if (isset($_GET['msg'])) {
         echo "<div>" . $_GET['msg'] . "</div>";
@@ -36,9 +36,9 @@
                 <tr class="cadre">
                     <td class="stats"><?php echo $oeuvre['id']; ?></td>
                     <td class=""><?php echo $oeuvre['nom']; ?></td>
-                    <td class="stats"><img src="tableaux/<?php echo $oeuvre['image_url']; ?>" /></td>
+                    <td class="stats"><img src="objets_decoratifs/<?php echo $oeuvre['image_url']; ?>" /></td>
                     <td align="right">
-                    <a class="stats" href="joconde.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
+                    <a class="stats" href="objets.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
                     <br>
                 </tr>
             <?php } ?>

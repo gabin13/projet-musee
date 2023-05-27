@@ -12,7 +12,7 @@ $bdd = connect();
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM oeuvres WHERE categorie = 'sculptures' AND id = $id";
+    $sql = "SELECT * FROM oeuvres WHERE categorie = 'art_numérique' AND id = $id";
     $sth = $bdd->prepare($sql);
     $sth->execute();
     $oeuvres = $sth->fetchAll();
@@ -20,11 +20,11 @@ if (isset($_GET['id'])) {
     if (isset($oeuvres)) {
         foreach ($oeuvres as $oeuvre) {
             echo '<div class="image-container image-' . $oeuvre['id'] . '">';
-            echo '<img class= "img3" src="sculptures/' . $oeuvre['image_url'] . '" alt="Image de l\'oeuvre" width="370" height="500" >';
+            echo '<img class= "img3" src="art_numerique/' . $oeuvre['image_url'] . '" alt="Image de l\'oeuvre" width="370" height="500" >';
             echo '</div>';
         }
 
-    $sql = "SELECT * FROM oeuvres WHERE categorie = 'sculptures' AND id = $id";
+    $sql = "SELECT * FROM oeuvres WHERE categorie = 'art_numérique' AND id = $id";
     $sth = $bdd->prepare($sql);
     $sth->execute();
 
@@ -56,9 +56,9 @@ if (isset($_GET['id'])) {
     echo "Aucun identifiant d'œuvre spécifié.";
 }
 ?>
+
 <a href="like.php?id=<?php echo $oeuvre['id']; ?>" class="like-button">&#10084;</a>
 <span class="like-count"><?php echo $oeuvre['nombre_likes']; ?></span>
-
 
 <!DOCTYPE html>
 <html lang="en">

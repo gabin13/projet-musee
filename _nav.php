@@ -72,6 +72,11 @@ $users = $sth->fetchAll();
         <li><a href="boutique.php">Boutique</a></li>
         <li><a href="contact.php?id=<?php echo $_SESSION['user']['id']; ?>">Contact</a></li>
         <li><a href="logout.php">Logout</a></li>
+       
+       
+    </ul>
+</nav>
+
         <?php } ?>
     </ul>
 </nav>

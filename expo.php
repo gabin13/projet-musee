@@ -1,8 +1,46 @@
 <?php require_once('functions.php'); ?>
+<?php require_once('_nav.php'); 
+
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit;
+}
+
+
+$bdd = connect();
+
+
+$sql = "SELECT * FROM users WHERE id = :user_id";
+$sth = $bdd->prepare($sql);
+$sth->execute([
+    'user_id' => $_SESSION['user']['id']
+]);
+$user = $sth->fetch();
+
+
+?>
+
 <link rel="stylesheet" href="styles/main.css"> 
-   
-<?php require_once('_header.php'); ?>
-    <?php require_once('_nav.php'); ?>
+<style>
+  .premium_categorie .logo_blocage {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 40px;
+        background-image: url('Images/cadena.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 3;
+    }
+</style>
+
+
+
+
+
 <h1>Bienvenue dans notre exposition</h1>
     <p>Explorez l'histoire, l'art et la culture depuis chez vous. 
     Découvrez des trésors culturels du monde entier, de l'art classique à l'art moderne. 
@@ -30,6 +68,64 @@
         </figcaption>
     </figure>
 </a>
+
+<?php if ($user['premium'] === '0') { ?>
+    <a href="premium.php">
+        <figure>
+            <div class="premium_categorie">
+                <div class="gris_fonce"></div>
+                <img src="objets_decoratifs/Adrien Dalpayrat.jpg" alt="">
+                <div class="logo_blocage"></div>
+            </div>
+            <figcaption>
+                <a href="premium.php">Objets Décoratifs</a>
+            </figcaption>
+        </figure>
+    </a>
+<?php } else { ?>
+    <a href="objets_decoratifs.php">
+        <figure>
+            <div class="sculptures">
+                <div class="gris_fonce"></div>
+                <img src="objets_decoratifs/Adrien Dalpayrat.jpg" alt="">
+            </div>
+            <figcaption>
+                <a href="objets_decoratifs.php">Objets Décoratifs</a>
+            </figcaption>
+        </figure>
+    </a>
+<?php } ?>
+
+
+<?php if ($user['premium'] === '0') { ?>
+    <a href="premium.php">
+        <figure>
+            <div class="premium_categorie">
+                <div class="gris_fonce"></div>
+                <img src="art_numerique/Image3.jpg" alt="">
+                <div class="logo_blocage"></div>
+            </div>
+            <figcaption>
+                <a href="premium.php">Art Numérique</a>
+            </figcaption>
+        </figure>
+    </a>
+<?php } else { ?>
+    <a href="art_numerique.php">
+        <figure>
+            <div class="sculptures">
+                <div class="gris_fonce"></div>
+                <img src="art_numerique/Image3.jpg" alt="">
+            </div>
+            <figcaption>
+                <a href="art_numerique.php">Art Numérique</a>
+            </figcaption>
+        </figure>
+    </a>
+<?php } ?>
+
+
+
 
 </body>
 </html>

@@ -1,0 +1,99 @@
+.rating {
+  
+    align-items: flex;
+  }
+  
+  .rating label {
+    margin-bottom: 0;
+    float: right;
+              cursor: pointer;
+              color: #777777;
+  }
+  
+  
+          .rating input {
+              display: none;
+          }
+  
+          
+  
+          .rating label:before {
+              content: "\2605";
+              font-size: 24px;
+          }
+  
+          .rating input:checked ~ label,
+          .rating input:checked ~ label ~ label {
+              color: #ffcc00;
+          }
+  
+        
+          body {
+              font-family: Arial, sans-serif;
+          }
+  
+          .container_contact {
+              max-width: 400px;
+              margin: 0 auto;
+              margin-top: 40px;
+              padding: 20px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              background-color: rgba(255, 255, 255, 0.5);
+          }
+  
+          .container_contact h1 {
+              text-align: center;
+          }
+  
+          .form-group_contact {
+              margin-bottom: 15px;
+          }
+  
+          .form-group_contact label {
+              display: block;
+              margin-bottom: 5px;
+          }
+  
+          .form-group_contact input[type="text"],
+          .form-group_contact input[type="email"],
+          .form-group_contact textarea,
+          .form-group_contact select {
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+          }
+  
+          .form-group_contact textarea {
+              height: 100px;
+          }
+           .form-group_contact {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group_contact .btn {
+    margin-top: auto;
+    padding: 10px 20px;
+    background-color: grey;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+          .form-group_contact .btn:hover {
+              background-color: #45a049;
+          }
+        
+          .message_sucess {
+           
+            color: green;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }

@@ -12,7 +12,7 @@ $bdd = connect();
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM oeuvres WHERE categorie = 'sculptures' AND id = $id";
+    $sql = "SELECT * FROM oeuvres WHERE categorie = 'objets_decoratifs' AND id = $id";
     $sth = $bdd->prepare($sql);
     $sth->execute();
     $oeuvres = $sth->fetchAll();
@@ -20,11 +20,11 @@ if (isset($_GET['id'])) {
     if (isset($oeuvres)) {
         foreach ($oeuvres as $oeuvre) {
             echo '<div class="image-container image-' . $oeuvre['id'] . '">';
-            echo '<img class= "img3" src="sculptures/' . $oeuvre['image_url'] . '" alt="Image de l\'oeuvre" width="370" height="500" >';
+            echo '<img class= "img3" src="objets_decoratifs/' . $oeuvre['image_url'] . '" alt="Image de l\'oeuvre" width="370" height="500" >';
             echo '</div>';
         }
 
-    $sql = "SELECT * FROM oeuvres WHERE categorie = 'sculptures' AND id = $id";
+    $sql = "SELECT * FROM oeuvres WHERE categorie = 'objets_decoratifs' AND id = $id";
     $sth = $bdd->prepare($sql);
     $sth->execute();
 

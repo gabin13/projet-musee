@@ -1,6 +1,6 @@
 <?php require_once('functions.php'); ?>
 <?php 
-    require_once('functions.php');
+   
 
     if (!isset($_SESSION['user'])) {
         header('Location: login.php');
@@ -18,8 +18,8 @@
     $oeuvres = $sth->fetchAll();
 ?>
 
-
-<?php require_once('_header.php'); ?>
+<link rel="stylesheet" href="styles/main.css"> 
+<?php require_once('_nav.php'); ?>
 
     <div class="register">
     <h1>Les Sculptures:  </h1>
@@ -31,10 +31,7 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <td class="id">ID</td>
-                <td class="stats">Nom</td>
-            </tr>
+           
         </thead>
         <tbody>
             <?php foreach ($oeuvres as $oeuvre) { ?>

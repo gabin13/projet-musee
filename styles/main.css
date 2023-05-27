@@ -1,7 +1,3 @@
-body {
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background-color: grey;
-}
 
 h1 {
     font-family: "Playfair Display", serif;
@@ -13,18 +9,7 @@ h2 {
     text-align: left;
 }
 
-footer {
-    background-color: #17026d;
-    color: #ffffff;
-    margin-top: 20px;
-    margin-bottom: 0px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    border-top: 1px solid #ccc;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
+
 
 form{
     text-align: right;
@@ -101,6 +86,7 @@ a {
     display: inline-block; /* Permet au cadre de s'ajuster à la taille du contenu */
     text-align: center; /* Centre le contenu dans la figure */
     justify-content: left;
+    
 }
 
 p {
@@ -120,42 +106,66 @@ p strong {
 }
 
 
-/* footer */
-.footer {
-    background-color: #f9f9f9;
-    padding: 20px;
-    color: #333333;
-  }
-  
-  .footer-info {
-    margin-bottom: 20px;
-  }
-  
-  .footer-info h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .footer-info p {
-    margin-bottom: 5px;
-  }
-  
-  .footer-extra ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .footer-extra ul li {
+/* test lock */
+/* Style de base */
+.sculpture-lock {
+    position: relative;
     display: inline-block;
-    margin-right: 10px;
   }
   
-  .footer-extra ul li a {
-    color: #666666;
+  .sculpture-lock img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  
+  .sculpture-lock figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s;
+  }
+  
+  .sculpture-lock:hover figcaption {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .sculpture-lock figcaption a {
+    color: #333333;
     text-decoration: none;
   }
   
-  .footer-extra ul li a:hover {
-    color: #333333;
-  }
-  
+
+     
+  /* Styles pour les objets décoratifs */
+     .premium_categorie {
+        position: relative;
+        cursor: not-allowed;
+        overflow: hidden;
+    }
+    
+    .premium_categorie .gris_fonce {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 25%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+    }
+    
+    .premium_categorie img {
+        position: relative;
+        z-index: 2;
+    }
+    
+   

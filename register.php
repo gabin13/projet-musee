@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="styles/main.css"> 
+<link rel="stylesheet" href="styles/login.css"> 
 <?php
 require_once('functions.php');
 
@@ -23,7 +25,11 @@ if (isset($_POST["send"])) {
     }
 }
 ?>
-
+<style> 
+    body {
+        background-image: url('images/Bierstadt_-_Among_the_Sierra_Nevada_Mountains_-_1868.webp');
+    }
+</style>
 <?php require_once('_header.php'); ?>
 <div class="container_register">
     <h1>Création de votre compte</h1>

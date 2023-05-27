@@ -1,137 +1,93 @@
 <?php
 require_once('functions.php');
 
-
 if (isset($_GET['id'])) {
     $userid = $_GET['id'];
     $bdd = connect();
 
-    // Récupérer les informations de l'utilisateur
     $sql = "SELECT * FROM users WHERE id = :id;";
     $sth = $bdd->prepare($sql);
     $sth->execute(['id' => $userid]);
     $user = $sth->fetch();
 
-    // Vérifier si l'utilisateur existe
-    
-       
+   $contact_valeur = false;
+    if ($user) {
+        
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $email = $user['email'];
+            $nom = $user['nom'];
+            $prenom = $user['nom'];
+            $raison = $_POST['raison'];
+            $note = isset($_POST['note']) ? $_POST['note'] : '';
+            $commentaire = $_POST['commentaire'];
+            
+
+            $donneesFormulaire = "Nom : $nom\n";
+            $donneesFormulaire .= "Prénom : $prenom\n";
+            $donneesFormulaire .= "Email : $email\n";
+            $donneesFormulaire .= "Raison de contact : $raison\n";
+            $donneesFormulaire .= "Note : $note\n";
+            $donneesFormulaire .= "Commentaire : $commentaire\n";
+
+           
+            $fichier = 'commentaires.txt';
+            file_put_contents($fichier, "[Utilisateur ID: $userid]\n$donneesFormulaire\n\n", FILE_APPEND);
+            
+            $userid = $_GET['id'];
+            $sql = "UPDATE users SET note = 1 WHERE id = :id"; 
+            $sth = $bdd->prepare($sql);
+            $sth->execute(['id' => $userid]);
+            
+          $contact_valeur = true;
+            
+        }
+    } else {
+        echo "Utilisateur non trouvé.";
     }
+} else {
+    echo "Une erreur s'est produite lors de l'envoi du formulaire.";
+}
 ?>
 
+<?php require_once('_nav.php'); ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Formulaire de contact</title>
-    <style>
-       
-       .rating {
-  
-  align-items: flex;
-}
 
-.rating label {
-  margin-bottom: 0;
-  float: right;
-            cursor: pointer;
-            color: #777777;
-}
-
-
-        .rating input {
-            display: none;
-        }
-
-        
-
-        .rating label:before {
-            content: "\2605";
-            font-size: 24px;
-        }
-
-        .rating input:checked ~ label,
-        .rating input:checked ~ label ~ label {
-            color: #ffcc00;
-        }
-
-      
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .container_contact {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: white;
-        }
-
-        .container_contact h1 {
-            text-align: center;
-        }
-
-        .form-group_contact {
-            margin-bottom: 15px;
-        }
-
-        .form-group_contact label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group_contact input[type="text"],
-        .form-group_contact input[type="email"],
-        .form-group_contact textarea,
-        .form-group_contact select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .form-group_contact textarea {
-            height: 100px;
-        }
-         .form-group_contact {
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-group_contact .btn {
-  margin-top: auto;
-  padding: 10px 20px;
-  background-color: grey;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-        .form-group_contact .btn:hover {
-            background-color: #45a049;
-        }
-      
-    </style>
+    <link rel="stylesheet" href="styles/contact.css"> 
+    <link rel="stylesheet" href="styles/footer.css"> 
 </head>
-<link rel="stylesheet" href="styles/main.css"> 
-<?php require_once('_header.php'); ?>
+
+<style>
+    body {
+  background-color: #f2f2f2; 
+  background-image: linear-gradient(to bottom, #f2f2f2, #ffffff); 
+}
+</style>
+
 <body>
+    <br><br>
     <div class="container_contact">
     <?php
 $userid = isset($_GET['id']) ? $_GET['id'] : '';
-
-// Assuming $user variable contains the logged-in user's information
 $email = $user['email'];
 $nom = $user['nom'];
 $prenom = $user['prenom'];
 
-?>
+    ?>
         <h1>Formulaire de contact</h1>
-        <form method="POST" action="traitement_formulaire.php?id=<?php echo $userid; ?>">
+        
+       
+         <?php
+         if ($contact_valeur == true) {
+             echo '<span class="message_sucess">Votre message a été envoyé avec succès !</span>';
+         }
+         ?>
+  
+
+        <form method="POST" action="contact.php?id=<?php echo $userid; ?>">
         <input type="hidden" name="id" value="<?php echo $userid; ?>">
 
        
@@ -201,21 +157,23 @@ $prenom = $user['prenom'];
             </div>
         </form>
     </div>
+    <br><br>
     <footer class="footer">
   <div class="container">
     <div class="footer-info">
       <h3>MuséeO-tech</h3>
       <p>2 rue bis galvanie 75004 Paris</p>
-      <p>Téléphone : +33 928 359 215</p>
+      <p>Téléphone : +33 9 28 35 92 15</p>
       <p>Email : contact@entreprise.com</p>
     </div>
     <div class="footer-extra">
       <ul>
-        <li><a href="#">Politique de confidentialité</a></li>
-        <li><a href="#">Conditions d'utilisation</a></li>
-        <li><a href="#">FAQ</a></li>
+        <li><a href="confidentialite.php">Politique de confidentialité</a></li>
+        <li><a href="conditions.php">Conditions d'utilisation</a></li>
+        <li><a href="faq.php">FAQ</a></li>
       </ul>
     </div>
+    <p>&copy; 2023 MuséeO-tech. Tous droits réservés.</p>
   </div>
 </footer>
 

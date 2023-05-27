@@ -49,6 +49,9 @@ if (isset($_GET['id'])) {
     
     
     echo "<br>";
+
+
+
     } else {
         echo "Œuvre introuvable.";
     }
@@ -56,6 +59,9 @@ if (isset($_GET['id'])) {
     echo "Aucun identifiant d'œuvre spécifié.";
 }
 ?>
+
+<a href="like.php?id=<?php echo $oeuvre['id']; ?>" class="like-button">&#10084;</a>
+<span class="like-count"><?php echo $oeuvre['nombre_likes']; ?></span>
 
 
 <!DOCTYPE html>
@@ -65,6 +71,7 @@ if (isset($_GET['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+   
     <link rel="stylesheet" href="styles/categorie.css" />
     <link rel="stylesheet" href="styles/oeuvre.css" />
 </head>
