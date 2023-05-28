@@ -19,6 +19,8 @@
 ?>
 
 <link rel="stylesheet" href="styles/main.css"> 
+<link rel="stylesheet" href="styles/footer.css"> 
+
 <?php require_once('_nav.php'); ?>
 
 
@@ -45,6 +47,8 @@
         </tbody><br><br>
     </table><br><br>
     </div>
+    <?php require_once('_footer.php'); ?>
+
     
 </body>
 </html>

@@ -5,6 +5,11 @@
 <?php require_once('functions.php'); ?>
 <?php require_once('_header.php'); ?>
 
+<style> 
+   h1{
+   text-align: center;
+   }
+</style> 
 <?php require_once('_nav.php'); ?>    
 <h1>Bienvenue dans notre musée virtuel</h1>
 

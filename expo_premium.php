@@ -1,6 +1,8 @@
 <?php require_once('functions.php'); ?>
 <?php require_once('_nav.php'); ?>
 <link rel="stylesheet" href="styles/main.css"> 
+<link rel="stylesheet" href="styles/footer.css"> 
+
 <style>
   .premium_categorie .logo_blocage {
         position: absolute;
@@ -52,6 +54,7 @@
     </figure>
 </a>
 
+<?php require_once('_footer.php'); ?>
 
 
 </body>

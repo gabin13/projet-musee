@@ -1,5 +1,6 @@
 <?php require_once('functions.php'); ?>
-<?php require_once('_nav.php'); 
+<?php require_once('_nav.php');
+
 
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
@@ -38,8 +39,7 @@ $user = $sth->fetch();
 </style>
 
 
-
-
+<link rel="stylesheet" href="styles/footer.css">
 
 <h1>Bienvenue dans notre exposition</h1>
     <p>Explorez l'histoire, l'art et la culture depuis chez vous. 
@@ -125,7 +125,7 @@ $user = $sth->fetch();
 <?php } ?>
 
 
-
+<?php require_once('_footer.php'); ?>
 
 </body>
 </html>

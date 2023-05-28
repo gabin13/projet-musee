@@ -73,6 +73,7 @@
       font-weight: bold;
     }
   </style>
+<link rel="stylesheet" href="styles/footer.css"> 
 
 </head>
 <body>
@@ -132,5 +133,9 @@ function redirectToAchat(productID) {
     window.location.href = 'achat.php?id=' + productID;
 }
 </script>
+
+<?php require_once('_footer.php'); ?>
+
+
 </body>
 </html>
