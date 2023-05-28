@@ -123,7 +123,7 @@ if (isset($_POST['action_adresse'])) {
         <div class="avatar-place avatar-overlay">
             <img src="Images/<?php echo $_SESSION['user']['avatar']; ?>" alt="Avatar">
             <div class="overlay-text">
-                <a href="hi.php">Modifier l'avatar</a>
+                <a href="avatar.php">Modifier l'avatar</a>
             </div>
         </div>
         <div class="user-details">
