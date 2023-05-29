@@ -1,6 +1,18 @@
 <?php
 require_once('functions.php');
 ?>
+  <?php 
+  if (isset($_SESSION['user'])) {
+        if (isset($_GET['avatar'])) {
+        $newAvatar = $_GET['avatar'];
+        $userId = $_SESSION['user']['id'];
+        $newAvatarAddress = "avatar" . $newAvatar . ".jpg";
+        $sql = "UPDATE users SET avatar = '$newAvatarAddress' WHERE id = '$userId'";
+        $_SESSION['user']['avatar'] = $newAvatarAddress;
+        }
+    }
+    ?>
+
 <!DOCTYPE html>
 <html>
 <head>
