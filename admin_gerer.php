@@ -84,7 +84,10 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
         }
     </style>
     <tbody>
-        <?php foreach ($users as $user) { ?>
+        <?php foreach ($users as $user) {
+             if ($user['id'] == 1) {
+                continue; 
+            } ?>
             <tr>
                 <td style="font-weight: 900;"><?php echo $user['id']; ?></td>
                 <td style="padding-left: 60px; font-weight: 900;font-size: 20px;"><?php echo $user['email']; ?></td>
