@@ -11,7 +11,7 @@
         <h1>Merci pour votre achat !</h1>
         <p>Nous vous remercions pour votre commande.</p>
         <p>Vous recevrez bientôt vos articles à l'adresse indiquée.</p>
-        
+        <br>
         <a href="boutique.php" class="button">Revenir à la boutique</a>
     </div>
 </body>

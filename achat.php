@@ -12,7 +12,6 @@ $sth->execute();
 $boutique = $sth->fetchAll();
 
 ?>
-
 <br>
 
 <div class="container">
