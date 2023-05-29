@@ -4,10 +4,17 @@ require_once('functions.php');
   <?php 
   if (isset($_SESSION['user'])) {
         if (isset($_GET['avatar'])) {
+
+            $bdd = connect();
+
         $newAvatar = $_GET['avatar'];
         $userId = $_SESSION['user']['id'];
         $newAvatarAddress = "avatar" . $newAvatar . ".jpg";
         $sql = "UPDATE users SET avatar = '$newAvatarAddress' WHERE id = '$userId'";
+
+        $sth = $bdd->prepare($sql);
+        $sth->execute();
+
         $_SESSION['user']['avatar'] = $newAvatarAddress;
         }
     }
