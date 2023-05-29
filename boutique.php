@@ -73,7 +73,6 @@
       font-weight: bold;
     }
   </style>
-<link rel="stylesheet" href="styles/footer.css"> 
 
 </head>
 <body>
@@ -111,20 +110,7 @@
       }
 
     ?>
-    
-
-
-    <div class="product" onclick="redirectToAchat(3)">
-      <img src="Images/mug.jpg" alt="mug">
-      <div class="product-info">
-        <h2 class="product-title">Mug David</h2>
-        <p class="product-description">Un mug représentant la célèbre sculpture de Michel-Ange, David.</p>
-        <p class="product-price">14.99€</p>
-      </div>
-    </div>
-    
-    <!-- Ajoutez d'autres produits ici -->
-    
+        
   </main>
 
   
@@ -133,9 +119,5 @@ function redirectToAchat(productID) {
     window.location.href = 'achat.php?id=' + productID;
 }
 </script>
-
-<?php require_once('_footer.php'); ?>
-
-
 </body>
 </html>
