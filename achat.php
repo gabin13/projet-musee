@@ -1,5 +1,30 @@
 <link rel="stylesheet" href="styles/achat.css">
-<?php require_once('functions.php'); 
+<?php require_once('functions.php'); ?>
+
+<style>
+  .produit-nom {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .produit-description {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .produit-image {
+    width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .produit-prix {
+    font-size: 20px;
+    font-weight: bold;
+  }
+</style>
+
+<?php
 
 $bdd = connect();
 
@@ -10,26 +35,32 @@ $boutique = $sth->fetchAll();
 
 ?> 
 
-<br><br><br>
+<br>
 
 <div class="container">
   <?php $productID = $_GET['id'];
 
- 
 if ($boutique) {
   foreach ($boutique as $produit) {
     $nom = $produit['nom'];
     $description = $produit['description'];
     $image = $produit['image'];
-    $prix = $produit['prix'];
+    $prix = $produit['prix'].'€';
 
     $id = $produit['id'];
 
     if ($id == $_GET['id']) {
-      echo "<div>Produit : $nom</div>";
+      echo "<div class='produit-nom'>Produit : $nom</div>";
+      echo "<div class='produit-description'>$description</div>";
+      echo "<img class='produit-image' src='Images/$image'>";
+      echo "<div class='produit-prix'>$prix</div>";
     }
   }
+  ?> <br><?php
+
+  echo "<div>Remplissez ce formulaire pour recevoir votre achat !</div>";
 }
+
 ?>
 
   <form action="traitement.php" method="post">
