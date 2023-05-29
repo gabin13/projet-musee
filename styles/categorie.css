@@ -363,10 +363,12 @@ body {
     color: red;
     text-decoration: none;
     
+    
 }
 
 .container_like {
     text-align: center;
+    margin-top: -40px;
 }
 
 

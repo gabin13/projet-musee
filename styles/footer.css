@@ -6,26 +6,34 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
+   height: 25%;
+   
   }
 
 
 .footer p {
     margin: 0;
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
   .footer-info {
     margin-bottom: 10px;
+   height: 47%;
   }
   
   .footer-info h3 {
     font-size: 16px;
     margin-bottom: 5px;
     color:white;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .footer-info p {
     margin-bottom: 3px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .footer-extra ul {
@@ -41,6 +49,7 @@
   .footer-extra ul li a {
     color: white;
     text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .footer-extra ul li a:hover {

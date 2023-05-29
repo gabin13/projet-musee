@@ -18,7 +18,8 @@ if (isset($_POST["send"])) {
     
     
             header('Location: expo.php');
-        } elseif  ($_POST['email'] === 'admin@admin' && $_POST['password'] === 'admin') {
+        } elseif  ($user['id'] == 1) {
+            $_SESSION['user'] = $user;
             header('Location: admin_gerer.php');
         
         exit();

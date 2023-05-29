@@ -36,7 +36,7 @@ if (isset($_GET['id'])) {
     echo '<div class="oeuvre-info">';
     echo "Nom: " . $oeuvre['nom'] . "<br>";
     echo "Auteur: " . $oeuvre['auteur'] . "<br>";
-    echo "Annee: " . $oeuvre['annee'] . "<br>";
+    echo "Année: " . $oeuvre['annee'] . "<br>";
     echo'</div>';
 
     echo '<div class="oeuvre-description">';

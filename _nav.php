@@ -19,23 +19,35 @@
             <h1 class="museum-name">MuséeO-tech</h1>
         </div>
         <ul>
-            <?php if (!isset($_SESSION['user'])) { ?>
-                <div class ="compte">
+        <?php if (!isset($_SESSION['user']) ) { ?>
+
+            <div class="compte">
                 <li><a href="accueil.php"><img src="Images/acceuil.png" alt="Accueil"></a></li>
                 <li><a href="register.php">Créer un compte</a></li>
                 <li><a href="login.php">Connexion</a></li>
-                </div>
-              
-            <?php } else { ?>
+            </div>
+        <?php } else if ($_SESSION['user']['id']  == 1) { ?>
+              <div class ="compte">
+              <li><a href="accueil.php"><img src="Images/acceuil.png" alt="Accueil"></a></li>
+            <li><a href="admin_gerer.php">Utilisateurs</a></li>
+            <li><a href="admin_vente.php">Oeuvres</a></li>
+            <li><a href="logout.php">Logout</a></li>
+              </div>
+          
+        <?php } else { ?>
             <li><a href="accueil.php"><img src="Images/acceuil.png" alt="Accueil"></a></li>
-                <li><a href="expo.php">Exposition</a></li>
-                <li><a href="premium.php">Premium</a></li>
-                <li><a href="boutique.php">Boutique</a></li>
+            <li><a href="expo.php">Exposition</a></li>
+            <li><a href="premium.php">Premium</a></li>
+            <li><a href="boutique.php">Boutique</a></li>
+            <?php if (isset($_SESSION['user']['id'])) { ?>
                 <li><a href="contact.php?id=<?php echo $_SESSION['user']['id']; ?>">Contact</a></li>
-                <li><a href="logout.php">Logout</a></li>
+            <?php } else { ?>
+                <li><a href="contact.php">Contact</a></li>
             <?php } ?>
-        </ul>
-        <?php if (isset($_SESSION['user'])) { ?>
+            <li><a href="logout.php">Logout</a></li>
+        <?php } ?>
+    </ul>
+        <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] != 1) { ?>
         <div class="nav-avatar">
         <a href="account.php">
             <div class="avatar-container">

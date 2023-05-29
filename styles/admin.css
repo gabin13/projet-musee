@@ -11,7 +11,7 @@ body {
 
 .container_custom {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 20px;
     background-color: white;
     border-radius: 10px;

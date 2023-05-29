@@ -6,7 +6,7 @@
       <h3>MuséeO-tech</h3>
       <p>2 rue bis galvanie 75004 Paris</p>
       <p>Téléphone : +33 9 28 35 92 15</p>
-      <p>Email : contact@entreprise.com</p>
+      <p>Email : privacy@museeotech.com</p>
     </div>
     <div class="footer-extra">
       <ul>
