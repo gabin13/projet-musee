@@ -95,10 +95,9 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
                     <?php if ($user['approuve'] == 0) { ?>
                         <a href="admin_gerer.php?approuves=true&user_id=<?php echo $user['id']; ?>">Valider</a> |
                         <a href="admin_gerer.php?approuves=false&user_id=<?php echo $user['id']; ?>">Refuser</a>
-                    <?php } else { ?>
-                        Validé
-                        
-                    <?php } ?>
+                        <?php } else { ?>
+                      <span style="color: green; font-weight: 900;">Validé</span>
+                     <?php } ?>
                 </td>
                 
                 <td>
@@ -122,8 +121,9 @@ if (isset($_GET['approuves']) && $_GET['approuves'] == 'false' && isset($_GET['u
         <?php } ?>
     </tbody>
 </table>
+<a class="" href="admin_vente.php">Gérer les ventes</a>
 </div>
-
+ 
 </body>
 </html>
 

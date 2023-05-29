@@ -18,9 +18,11 @@
     $oeuvres = $sth->fetchAll();
 ?>
 
-<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="styles/oeuvre.css"> 
 <link rel="stylesheet" href="styles/footer.css"> 
+
 <?php require_once('_nav.php'); ?>
+
 
     <div class="register">
     <h1>Les Sculptures:  </h1>
@@ -31,23 +33,24 @@
 
 
     <table class="table">
-        <thead>
-           
-        </thead>
         <tbody>
             <?php foreach ($oeuvres as $oeuvre) { ?>
                 <tr class="cadre">
                     <td class="stats"><?php echo $oeuvre['id']; ?></td>
-                    <td class="stats"><?php echo $oeuvre['nom']; ?></td>
-                    <td><img src="sculptures/<?php echo $oeuvre['image_url']; ?>" /></td>
+                    <td class=""><?php echo $oeuvre['nom']; ?></td>
+                    <td class="stats"><img src="sculptures/<?php echo $oeuvre['image_url']; ?>" /></td>
                     <td align="right">
-                    <a class="stats" href="sculp.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
-
+                    <a class="savoir_plus" href="sculp.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
+                    <br>
                 </tr>
             <?php } ?>
-        </tbody>
+        </tbody><br><br>
     </table><br><br>
+    <div class="btn-retour">
+    <a class="btn" href="expo.php">Retour</a>
+</div>
     </div>
     <?php require_once('_footer.php'); ?>
+    
 </body>
 </html>

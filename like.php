@@ -1,6 +1,5 @@
 <?php
 
-
 require_once('functions.php');
 
 if (!isset($_SESSION['user'])) {
@@ -15,51 +14,53 @@ if (isset($_GET['id'])) {
 
     $bdd = connect();
 
-    // Vérifier si l'utilisateur existe
-    $sql = "SELECT * FROM users WHERE id = :userId";
+    // Vérifier si l'utilisateur a déjà liké l'œuvre
+    $sql = "SELECT * FROM likes WHERE user_id = :userId AND oeuvre_id = :oeuvreId";
     $sth = $bdd->prepare($sql);
     $sth->execute([
-        'userId' => $userId
+        'userId' => $userId,
+        'oeuvreId' => $oeuvreId
     ]);
 
-    $user = $sth->fetch(PDO::FETCH_ASSOC);
+    $like = $sth->fetch(PDO::FETCH_ASSOC);
 
-    if ($user) {
-        // Récupérer le nombre de likes actuel pour l'œuvre
-        $sql = "SELECT nombre_likes FROM oeuvres WHERE id = :oeuvreId";
+    if ($like) {
+        $message = "Vous avez déjà liké cette œuvre.";
+    } else {
+        // Insérer le like dans la table des likes
+        $sql = "INSERT INTO likes (user_id, oeuvre_id) VALUES (:userId, :oeuvreId)";
         $sth = $bdd->prepare($sql);
         $sth->execute([
+            'userId' => $userId,
             'oeuvreId' => $oeuvreId
         ]);
 
-        $row = $sth->fetch(PDO::FETCH_ASSOC);
-
-        if ($row) {
-            $nombreLikes = $row['nombre_likes'];
-
-            // Incrémenter le nombre de likes
-            $nombreLikes++;
-
-            // Mettre à jour le nombre_likes dans la table oeuvres
-            $sql = "UPDATE oeuvres SET nombre_likes = :nombreLikes WHERE id = :oeuvreId";
+        // Mettre à jour le nombre de likes de l'œuvre uniquement si le like a été inséré avec succès
+        if ($sth->rowCount() > 0) {
+            $sql = "UPDATE oeuvres SET nombre_likes = nombre_likes + 1 WHERE id = :oeuvreId";
             $sth = $bdd->prepare($sql);
             $sth->execute([
-                'nombreLikes' => $nombreLikes,
                 'oeuvreId' => $oeuvreId
             ]);
 
-            echo "Vous avez liké l'œuvre avec succès.";
+            $message = "Vous avez liké l'œuvre avec succès.";
         } else {
-            echo "Œuvre introuvable.";
+            $message = "Erreur lors du like de l'œuvre.";
         }
-    } else {
-        echo "Utilisateur introuvable.";
     }
-
-    // Redirection vers la page précédente
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-    exit();
 } else {
-    echo "Aucun identifiant d'œuvre spécifié.";
+    $message = "Aucun identifiant d'œuvre spécifié.";
 }
+
+$message = urlencode($message);
+$redirectURL = $_SERVER['HTTP_REFERER'];
+if (strpos($redirectURL, '?') !== false) {
+    $redirectURL .= '&message=' . $message;
+} else {
+    $redirectURL .= '?message=' . $message;
+}
+
+header('Location: ' . $redirectURL);
+exit();
+
 ?>

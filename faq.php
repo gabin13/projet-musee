@@ -24,6 +24,7 @@ if (isset($_GET['id'])) {
 
     <title>FAQ - MuséeO-tech</title>
     <link rel="stylesheet" href="styles/confidentialite.css">
+    <link rel="stylesheet" href="styles/footer.css">
 </head>
 <br><br>
 <body>
@@ -83,14 +84,12 @@ if (isset($_GET['id'])) {
     <p>Vous pouvez nous contacter par téléphone au 123-456-789 ou par email à l'adresse info@museeotech.com. Notre équipe se fera un plaisir de répondre à vos questions et de vous aider.</p>
 </div>
 <div class="btn-retour">
-            <a class="btn" href="contact.php?id=<?php echo $_SESSION['user']['id']; ?>">Retour</a>
-        </div>
-    
+    <a class="btn" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Retour</a>
+</div>
+
     </div>
 
 
-    <footer>
-        <p>&copy; 2023 MuséeO-tech. Tous droits réservés.</p>
-    </footer>
+    <?php require_once('_footer.php'); ?>
 </body>
 </html>

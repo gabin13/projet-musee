@@ -11,7 +11,7 @@
 
 
 
-    <nav class="navbar">
+    <nav class="navbar navbar_customiser">
         <div class="logo-container">
             <div class="logo-circle">
                 <img src="Images/musee_pass.jpg" alt="Logo du musée">
@@ -20,9 +20,12 @@
         </div>
         <ul>
             <?php if (!isset($_SESSION['user'])) { ?>
+                <div class ="compte">
                 <li><a href="accueil.php"><img src="Images/acceuil.png" alt="Accueil"></a></li>
                 <li><a href="register.php">Créer un compte</a></li>
                 <li><a href="login.php">Connexion</a></li>
+                </div>
+              
             <?php } else { ?>
             <li><a href="accueil.php"><img src="Images/acceuil.png" alt="Accueil"></a></li>
                 <li><a href="expo.php">Exposition</a></li>
@@ -44,4 +47,4 @@
             </div>
         <?php } ?>
     </nav>
-    <br><br><br><br>
+   <br><br><br><br>

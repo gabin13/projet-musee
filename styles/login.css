@@ -52,3 +52,14 @@ form{
 .form-group button:hover {
     background-color: #555;
 }
+
+.container_register {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 5%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    top: 200px;
+}

@@ -18,14 +18,14 @@
     $oeuvres = $sth->fetchAll();
 ?>
 
-<link rel="stylesheet" href="styles/main.css"> 
+<link rel="stylesheet" href="styles/oeuvre.css"> 
 <link rel="stylesheet" href="styles/footer.css"> 
 
 <?php require_once('_nav.php'); ?>
 
 
     <div class="register">
-    <h1>Les Objets décoratifs:  </h1>
+    <h1>Les Arts Numérique:  </h1>
 
     <?php if (isset($_GET['msg'])) {
         echo "<div>" . $_GET['msg'] . "</div>";
@@ -40,15 +40,17 @@
                     <td class=""><?php echo $oeuvre['nom']; ?></td>
                     <td class="stats"><img src="art_numerique/<?php echo $oeuvre['image_url']; ?>" /></td>
                     <td align="right">
-                    <a class="stats" href="art.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
+                    <a class="savoir_plus" href="art.php?id=<?php echo $oeuvre['id']; ?>">En savoir plus...</a>
                     <br>
                 </tr>
             <?php } ?>
         </tbody><br><br>
     </table><br><br>
+    <div class="btn-retour">
+    <a class="btn" href="expo.php">Retour</a>
+</div>
     </div>
     <?php require_once('_footer.php'); ?>
-
     
 </body>
 </html>

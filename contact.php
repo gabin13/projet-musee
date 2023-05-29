@@ -155,27 +155,13 @@ $prenom = $user['prenom'];
             <div class="form-group_contact">
                 <input type="submit" value="Envoyer" class="btn">
             </div>
+            <div class="form-group_contact">
+         <a class="btn" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Retour</a>
+           </div>
         </form>
     </div>
     <br><br>
-    <footer class="footer">
-  <div class="container">
-    <div class="footer-info">
-      <h3>MuséeO-tech</h3>
-      <p>2 rue bis galvanie 75004 Paris</p>
-      <p>Téléphone : +33 9 28 35 92 15</p>
-      <p>Email : contact@entreprise.com</p>
-    </div>
-    <div class="footer-extra">
-      <ul>
-        <li><a href="confidentialite.php">Politique de confidentialité</a></li>
-        <li><a href="conditions.php">Conditions d'utilisation</a></li>
-        <li><a href="faq.php">FAQ</a></li>
-      </ul>
-    </div>
-    <p>&copy; 2023 MuséeO-tech. Tous droits réservés.</p>
-  </div>
-</footer>
+  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
@@ -194,6 +180,6 @@ $prenom = $user['prenom'];
             });
         });
     </script>
-
+ <?php require_once('_footer.php'); ?>
 </body>
 </html>

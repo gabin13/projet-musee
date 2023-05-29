@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="styles/main.css"> 
+
 <link rel="stylesheet" href="styles/login.css"> 
 <?php
 require_once('functions.php');
@@ -89,8 +89,8 @@ if (isset($_POST["send"])) {
 </div>
 <?php
 if (isset($_POST["send"]) && !($_POST['email'] == 'admin@admin')) {
-   echo '<div style="display: flex; justify-content: center; align-items: center; height: 20vh; font-size: 50px; font-weight: bold;">
-   <p>VEUILLEZ ATTENDRE D\'ÊTRE ACCEPTÉ/REFUSÉ PAR L\'ADMINISTRATEUR</p>
+   echo '<div style="display: flex; justify-content: center; align-items: center; height: 20vh; font-size: 50px;color:green; font-weight: bold;">
+   <p  >VEUILLEZ ATTENDRE D\'ÊTRE ACCEPTÉ/REFUSÉ PAR L\'ADMINISTRATEUR</p>
    </div>';
 }
 ?>

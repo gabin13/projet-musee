@@ -124,6 +124,7 @@ function generatecodedeverification($length)
    
 </head>
 <link rel="stylesheet" href="styles/premium.css"> 
+<link rel="stylesheet" href="styles/footer.css"> 
 <style>
   .premium-pass {
     width: 300px;
@@ -217,5 +218,6 @@ if ($afficher_erreur) {
         </div>
         
     <?php } ?>
+    <?php require_once('_footer.php'); ?>
 </body>
 </html>

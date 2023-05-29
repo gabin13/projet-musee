@@ -59,9 +59,19 @@ if (isset($_GET['id'])) {
     echo "Aucun identifiant d'œuvre spécifié.";
 }
 ?>
+<div class="container_like">
+    <a href="like.php?id=<?php echo $oeuvre['id']; ?>" class="like-button">&#10084;</a>
+    <span class="like-count"><?php echo $oeuvre['nombre_likes']; ?></span>
+    <?php
+if (isset($_GET['message'])) {
+    $message = urldecode($_GET['message']);
+    echo "<p>$message</p>";
+}
+?>
+</div>
 
-<a href="like.php?id=<?php echo $oeuvre['id']; ?>" class="like-button">&#10084;</a>
-<span class="like-count"><?php echo $oeuvre['nombre_likes']; ?></span>
+
+
 
 
 <!DOCTYPE html>
@@ -73,10 +83,18 @@ if (isset($_GET['id'])) {
     <title>Document</title>
    
     <link rel="stylesheet" href="styles/categorie.css" />
-    <link rel="stylesheet" href="styles/oeuvre.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+   
 </head>
-<body class= "container">
-<?php require_once('_nav.php'); ?>
-    
+<?php require_once('_nav.php'); ?> 
+
+<body>
+    <div class = "container">
+    <div class="btn-retour">
+    <a class="btn" href="tableaux.php">Retour</a>
+</div>
+    </div>
+
+<?php require_once('_footer.php'); ?>
 </body>
 </html>

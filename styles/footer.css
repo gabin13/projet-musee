@@ -1,6 +1,5 @@
 .footer {
     background-color: rgb(134, 132, 132);;
-    padding: 10px;
     color: black;
     display: flex;
     justify-content: center;
@@ -8,7 +7,13 @@
     flex-direction: column;
     text-align: center;
   }
-  
+
+
+.footer p {
+    margin: 0;
+}
+
+
   .footer-info {
     margin-bottom: 10px;
   }

@@ -7,13 +7,12 @@
         $userid = $_GET['id'];
         $bdd = connect();
 
-        // Récupérer les informations de l'utilisateur
         $sql = "SELECT * FROM users WHERE id = :id;";
         $sth = $bdd->prepare($sql);
         $sth->execute(['id' => $userid]);
         $user = $sth->fetch();
 
-        // Vérifier si l'utilisateur existe
+      
         if ($user) {
             $email = $user['email'];
 
@@ -22,7 +21,7 @@
             if (file_exists($fichier)) {
                 $contenu = file_get_contents($fichier);
 
-                // Rechercher les commentaires de l'utilisateur spécifique
+              
                 $commentairesUtilisateur = [];
                 preg_match_all("/\[Utilisateur ID: $userid\]\n(.*?)\n\n/s", $contenu, $matches);
                 if (!empty($matches[1])) {
@@ -35,6 +34,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles/admin.css"> 
+
    
     <title>Commentaires</title>
   
@@ -49,9 +49,9 @@
                     
                    
                     foreach ($commentairesUtilisateur as $commentaire) {
-                        // Vérifier si l'adresse e-mail de l'utilisateur correspond à celle enregistrée dans le commentaire
+                       
                         if (strpos($commentaire, "Email : $email") !== false) {
-                            echo '<p>' . nl2br($commentaire) . '</p>'; // Afficher les commentaires de l'utilisateur avec les sauts de ligne
+                            echo '<p>' . nl2br($commentaire) . '</p>';
                         }
                     }
                 } else {

@@ -1,12 +1,32 @@
 <?php
 require_once('functions.php');
 ?>
+  <?php 
+  if (isset($_SESSION['user'])) {
+        if (isset($_GET['avatar'])) {
+
+            $bdd = connect();
+
+        $newAvatar = $_GET['avatar'];
+        $userId = $_SESSION['user']['id'];
+        $newAvatarAddress = "avatar" . $newAvatar . ".jpg";
+        $sql = "UPDATE users SET avatar = '$newAvatarAddress' WHERE id = '$userId'";
+
+        $sth = $bdd->prepare($sql);
+        $sth->execute();
+
+        $_SESSION['user']['avatar'] = $newAvatarAddress;
+        }
+    }
+    ?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Votre compte</title>
     <link rel="stylesheet" href="styles/account.css">
+    <link rel="stylesheet" href="styles/footer.css" />
 </head>
 <body>
 <?php
@@ -218,10 +238,13 @@ if (isset($_POST['action_adresse'])) {
                 <?php endif; ?>
             <?php endif; ?>
         </div>
+      
+       
     </div>
-
+    <br><br>
+    <a class="btn-retour" href="expo.php">Retour</a>
     
 </div>
-
+<?php require_once('_footer.php'); ?>
 </body>
 </html>

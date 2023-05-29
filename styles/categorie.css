@@ -3,10 +3,14 @@
     flex-direction: column;
     align-items: center;
     max-width: 60%;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 20px;
+    
 }
 
+body {
+    background-color: #f2f2f2;
+}
 
 .image-container {
     flex: 1;
@@ -358,11 +362,36 @@
     display: inline-block;
     color: red;
     text-decoration: none;
+    
 }
+
+.container_like {
+    text-align: center;
+}
+
+
 
 .like-count {
     display: inline-block;
     margin-left: 5px;
     color: black;
+    text-decoration: none;
+   
+}
+
+.btn-retour {
+    display: inline;
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    text-align: center;
+    position: relative;
+    top: -70px;
+}
+
+.btn {
+    color: white;
     text-decoration: none;
 }
